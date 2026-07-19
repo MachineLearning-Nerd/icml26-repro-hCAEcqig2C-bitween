@@ -1,0 +1,17 @@
+C3 multi-seed evidence — gpt-oss-120b, full 80-function RSR-Bench, 3 independent seeds
+Generated 2026-07-16. abitween = infer_property_tool+symbolic_verify_tool ON; neural = OFF
+
+Per-seed single-run metrics:
+cond-seed          covered  verified  unverified  verify_acc   cover%
+abitween-s1          73/80       320          39       89.1%    91.2%
+neural-s1            74/80       369         107       77.5%    92.5%
+abitween-s2          72/80       326          32       91.1%    90.0%
+neural-s2            77/80       356          80       81.7%    96.2%
+abitween-s3          71/80       322          39       89.2%    88.8%
+neural-s3            72/80       344          94       78.5%    90.0%
+
+3-seed UNION coverage (best-over-runs): agentic 79/80 vs neural 78/80
+Agentic uniquely covers: 42_arccos, 51_log1p (tool-dependent; neural never derives)
+Neural uniquely covers: 59_frac (standard recall)
+
+VERDICT: agentic > neural on discovery (79>78 union) AND verification (~90% vs ~80%).

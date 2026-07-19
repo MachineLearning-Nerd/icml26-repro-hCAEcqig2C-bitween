@@ -1,0 +1,28 @@
+OpenAI Agent Response:
+
+===Stop Reason===
+end_turn
+
+===Metrics===
+Event Loop Metrics Summary:
+├─ Cycles: total=0, avg_time=0.000s, total_time=0.000s
+├─ Tokens: in=0, out=0, total=0
+├─ Bedrock Latency: 0ms
+├─ Tool Usage:
+├─ Execution Trace:
+
+===Trace===
+========== assistant: start ========================================================================
+
+No response received: Exception when calling `query_agent`: tool call validation failed: parameters for tool infer_property_tool did not match schema: errors: [`/method`: value must be one of "multiple_regression", "simple_regression", "forward_selection", "eager_milp", "pysr", "gplearn", "kan", "rag_sr", "parfam", "metasymnet", `/milp`: expected string, but got null]
+
+========== assistant: end ==========================================================================
+
+
+
+===Answers===
+
+
+
+
+Took time: 11.89s

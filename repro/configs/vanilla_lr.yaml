@@ -1,0 +1,21 @@
+# V-Bitwen-LR (Vanilla Bitwen) reproduction — Claim 1
+# Core method = multiple_regression over the fixed query set {x+y, x-y, x*y, x, y}
+# with SymPy symbolic verification. Pure CPU; no LLM, no GPU.
+method: multiple_regression          # Method.MULTIPLE_REGRESSION = "mreg (vanilla Bitween)"
+timeout_sec: 1800                    # per-function wall cap (paper default)
+seeds: [42, 7, 123]                  # run multiple seeds; LR is near-deterministic but sampling is random
+res_dir: outputs/vbitween-lr         # per-seed subdir (e.g. seed42/) holds <test_id>.txt logs
+
+# Per-function sampling knobs (degree, n, epsilon, var_bound) come from each
+# upstream test_* definition; global defaults live in upstream/bitween.ini.
+harness_modules:
+  - bitween.evaluation.evaluation_rsr_bench_paper            # functions 1-40
+  - bitween.evaluation.evaluation_rsr_bench_paper_extended   # functions 41-80
+
+# Cross-check target (authors' canonical CSV, mreg block, cols 18-21):
+#   aggregate = 87 rsr / 87 verified / 46 unverified / 4.791s avg, 54% coverage
+canonical_csv: outputs/canonical/Bitween-Results(Sheet1-ICML).csv
+
+# Environment
+python: ">=3.11,<3.13"               # upstream requires-python; we pin 3.12 via uv
+upstream_commit: e13d4b59f6d23051c73e07cfc447336da84e7bd2   # pinned clone (2026-05-31)

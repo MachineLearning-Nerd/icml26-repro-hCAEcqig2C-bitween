@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# Local reproduction outputs (regenerable; large)
+outputs/*/seed*/
+outputs/smoke/
+*.trace.csv
+logs/
+
+# Trackio local state is committed selectively; ignore caches
+.trackio/*.log
+
+# Secrets
+.env
+*.token
+
+# OS
+.DS_Store

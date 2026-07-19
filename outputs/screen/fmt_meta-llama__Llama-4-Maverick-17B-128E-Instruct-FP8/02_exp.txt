@@ -1,0 +1,28 @@
+OpenAI Agent Response:
+
+===Stop Reason===
+end_turn
+
+===Metrics===
+Event Loop Metrics Summary:
+├─ Cycles: total=0, avg_time=0.000s, total_time=0.000s
+├─ Tokens: in=0, out=0, total=0
+├─ Bedrock Latency: 0ms
+├─ Tool Usage:
+├─ Execution Trace:
+
+===Trace===
+========== assistant: start ========================================================================
+
+No response received: Exception when calling `query_agent`: Error code: 400 - {'code': 400, 'reason': 'INVALID_REQUEST_BODY', 'message': 'model features function calling not support', 'metadata': {}}
+
+========== assistant: end ==========================================================================
+
+
+
+===Answers===
+
+
+
+
+Took time: 1.93s

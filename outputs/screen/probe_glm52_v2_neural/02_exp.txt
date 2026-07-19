@@ -1,0 +1,501 @@
+OpenAI Agent Response:
+
+===Stop Reason===
+end_turn
+
+===Metrics===
+Event Loop Metrics Summary:
+├─ Cycles: total=6, avg_time=1.930s, total_time=11.578s
+├─ Tokens: in=21081, out=12705, total=33786
+├─ Bedrock Latency: 0ms
+├─ Tool Usage:
+   └─ sequentialthinking:
+      ├─ Stats: calls=5, success=4
+      │         errors=1, success_rate=80.0%
+      ├─ Timing: avg=0.004s, total=0.018s
+      └─ Tool Calls:
+         ├─ call_019f6ee1ec7b7e83a4077ec0: sequentialthinking
+         ├─ call_019f6ee1f2f5766384a2f95e: sequentialthinking
+         ├─ call_019f6ee1f9d372e3a75be2f0: sequentialthinking
+         ├─ call_019f6ee2064e7a0388bf0219: sequentialthinking
+         ├─ call_019f6ee2338e7be29984044c: sequentialthinking
+├─ Execution Trace:
+   └─ None - Duration: None
+      └─ None - Duration: 66.5111s
+      └─ sequentialthinking - call_019f6ee1ec7b7e83a4077ec0 - call_019f6ee1ec7b7e83a4077ec0 - Duration: 0.0044s
+      └─ None - Duration: 40.5597s
+   └─ None - Duration: None
+      └─ None - Duration: 1.8735s
+      └─ sequentialthinking - call_019f6ee1f2f5766384a2f95e - call_019f6ee1f2f5766384a2f95e - Duration: 0.0039s
+      └─ None - Duration: 38.6818s
+   └─ None - Duration: None
+      └─ None - Duration: 3.2880s
+      └─ sequentialthinking - call_019f6ee1f9d372e3a75be2f0 - call_019f6ee1f9d372e3a75be2f0 - Duration: 0.0029s
+      └─ None - Duration: 35.3904s
+   └─ None - Duration: None
+      └─ None - Duration: 11.5388s
+      └─ sequentialthinking - call_019f6ee2064e7a0388bf0219 - call_019f6ee2064e7a0388bf0219 - Duration: 0.0033s
+      └─ None - Duration: 23.8476s
+   └─ None - Duration: None
+      └─ None - Duration: 12.2652s
+      └─ sequentialthinking - call_019f6ee2338e7be29984044c - call_019f6ee2338e7be29984044c - Duration: 0.0034s
+      └─ None - Duration: 11.5783s
+   └─ None - Duration: 11.5782s
+      └─ None - Duration: 11.5777s
+
+===Trace===
+========== user: start =============================================================================
+
+
+        <instructions>
+        You are given some functions implemented in python. You need to
+        understand their implementation and note their names. Your goal is to
+        discover randomized self-reductions (RSRs) for these functions.
+
+        An RSR is a property that allows computing f(x) by evaluating f at
+        random correlated points. Formally, an RSR consists of:
+        - Query functions: q_i(x,r) that generate correlated evaluation points
+        - Recovery function: p that combines results to recover f(x)
+        Such that: f(x) = p(x, r, f(q_1(x,r)), ..., f(q_k(x,r)))
+
+        For a single function f(x), you should explore properties containing
+        terms like: f(x+r), f(x-r), f(r), f(2x+r), etc., where r represents
+        randomness. These properties reveal how f(x) can be computed from f
+        evaluated at other correlated points, exposing the function's hidden
+        mathematical structure.
+
+        RSRs enable powerful applications:
+        - Self-correction: Fix errors by using multiple evaluations
+        - Instance hiding: Compute f(x) without revealing x
+        - Computational efficiency: Sometimes simpler to compute at related points
+
+        <rsr_thinking>
+        When searching for RSRs, think systematically:
+        1. **Query Functions**: What transformations of x make sense?
+           - Additive: x+r, x-r, x+2r, etc.
+           - Multiplicative: x*r, x/r (if applicable)
+           - Compositions: f(g(x+r)) where g is related to f
+
+        2. **Recovery Function**: How do the queried values combine?
+           - Linear combinations: a*f(x+r) + b*f(x-r) + c*f(r)
+           - Products: f(x+r)*f(x-r)*...
+           - Rational expressions: numerator/denominator forms
+
+        3. **Mathematical Structure**: What drives the relationship?
+           - Symmetries (even, odd, periodic)
+           - Algebraic identities (addition formulas, etc.)
+           - Analytic properties (derivatives, series expansions)
+        </rsr_thinking>
+
+        <mathematical_approach>
+        Think of this as mathematical detective work. Each property you find
+        is a clue about the function's deeper structure. When selecting
+        expressions to explore, each choice is a hypothesis about what
+        relationships might exist.
+
+        Draw upon your mathematical knowledge - consider what you know about
+        similar functions, algebraic structures, and mathematical patterns.
+        Your understanding of mathematics can guide you to discover non-obvious
+        relationships that pure computation might miss.
+
+        **Deep Exploration Strategy**:
+        - When you find a property, ask: "Why does this hold? What does it tell
+          me about the function's structure?"
+        - Look for patterns: for instance, if f(2*x) and f(3*x) have a specific
+                             pattern, try to generalize it, like f(cx).
+        - Consider special values: What happens at x=0, x=π/c, x=π/2c?
+        - Explore symmetries: If you find one symmetry, are there related ones?
+        - Connect properties: How do discovered properties relate to each other?
+        - Form conjectures: Based on patterns, hypothesize new relationships
+        </mathematical_approach>
+
+        
+
+        <reflection>
+        As you discover properties, consider: What mathematical structure do
+        they reveal? Properties often form families - if you find one, related
+        ones may exist.
+
+        Trust your mathematical intuition. Sometimes the most elegant
+        properties come from recognizing deeper patterns that connect to
+        fundamental mathematical concepts you already understand. Let your
+        knowledge guide your exploration beyond mechanical search.
+
+        **Quality over Quantity**:
+        - Always verify discovered properties before including them in your answer
+        - If a property fails verification, analyze why - it might lead to an insight
+        - Look for the most general form of a property
+        - Consider edge cases and domain restrictions
+
+        **Systematic Exploration**:
+        - Start with known mathematical identities, then generalize
+        - If you find f(2x) relations, systematically check f(3x), f(4x), etc.
+        - Explore both additive (f(x+y)) and multiplicative (f(xy)) structures
+        - Consider compositions: if g(f(x)) has properties, what about f(g(x))?
+        </reflection>
+        </instructions>
+
+        <formatting>
+        Format the found properties as zero equalities in the format of sympy,
+        one property per line. Contain only these properties inside the
+        <answer>, </answer> tags. All of the other words should be inside the
+        <reason>, </reason> tags.
+
+        Here is an example of the correct output format:
+        <example>
+        Provided functions:
+            def f(x, c=5):
+                return c * x
+
+        Your potential answer:
+            <reasoning>
+                All your reasoning...
+            </reasoning>
+            <answer>
+                Eq(f(x) - f(x-y) - f(y), 0)
+                Eq(f(x+y) - f(x-y) - 2*f(y), 0)
+                ...
+            </answer>
+        </example>
+        </formatting>
+
+        <instructions>
+        These are the provided functions:
+            def f(x):
+                return math.exp(x)
+
+        Try to find as many properties in sympy format as possible and do
+        not forget to format your response using the XML tags.
+        </instructions>
+        
+
+========== user: end ===============================================================================
+
+========== assistant: start ========================================================================
+
+Tool Use `sequentialthinking` with args:
+    thought: The function is f(x) = exp(x). The exponential function satisfies the fundamental functional equation: f(x+y) = f(x)*f(y). This is the key property from which all RSRs derive. Let me systematically derive all RSRs from this single identity.
+    thoughtNumber: 1
+    totalThoughts: 4
+
+========== assistant: end ==========================================================================
+
+========== user: start =============================================================================
+
+Tool Result `sequentialthinking`:
+    status: error
+    content:
+        MCP error -32602: Input validation error: Invalid arguments for tool sequentialthinking: [
+  {
+    "expected": "boolean",
+    "code": "invalid_type",
+    "path": [
+      "nextThoughtNeeded"
+    ],
+    "message": "Invalid input: expected boolean, received undefined"
+  }
+]
+
+========== user: end ===============================================================================
+
+========== assistant: start ========================================================================
+
+Tool Use `sequentialthinking` with args:
+    thought: The function is f(x) = exp(x). The exponential function satisfies the fundamental functional equation: f(x+y) = f(x)*f(y). This is the key property from which all RSRs derive. Let me systematically derive all RSRs from this single identity.
+    nextThoughtNeeded: True
+    thoughtNumber: 1
+    totalThoughts: 4
+
+========== assistant: end ==========================================================================
+
+========== user: start =============================================================================
+
+Tool Result `sequentialthinking`:
+    status: success
+    content:
+        {
+  "thoughtNumber": 1,
+  "totalThoughts": 4,
+  "nextThoughtNeeded": true,
+  "branches": [],
+  "thoughtHistoryLength": 1
+}
+
+========== user: end ===============================================================================
+
+========== assistant: start ========================================================================
+
+Tool Use `sequentialthinking` with args:
+    nextThoughtNeeded: True
+    thought: From f(x+y) = f(x)*f(y), setting x = a, y = b: f(a+b) = f(a)*f(b). This gives us the first RSR: f(x) can be computed as f(x+r)*f(-r) since x = (x+r) + (-r), so f(x) = f(x+r)*f(-r). Similarly f(x) = f(x-r)*f(r). These are the basic additive RSRs. Now let me think about more complex ones.
+
+Key identities:
+1. f(x+y) = f(x)*f(y) → f(x+y) - f(x)*f(y) = 0
+2. f(x) = f(x+r)*f(-r) → f(x) - f(x+r)*f(-r) = 0 (and with r→-r: f(x) - f(x-r)*f(r) = 0)
+3. f(x) = f(x-r)*f(r) → f(x) - f(x-r)*f(r) = 0
+4. f(0) = 1
+5. f(-x) = 1/f(x) → f(-x)*f(x) - 1 = 0
+6. f(x-y) = f(x)/f(y) → f(x-y) - f(x)*f(-y) = 0, or f(x-y)*f(y) - f(x) = 0
+    thoughtNumber: 2
+    totalThoughts: 4
+
+========== assistant: end ==========================================================================
+
+========== user: start =============================================================================
+
+Tool Result `sequentialthinking`:
+    status: success
+    content:
+        {
+  "thoughtNumber": 2,
+  "totalThoughts": 4,
+  "nextThoughtNeeded": true,
+  "branches": [],
+  "thoughtHistoryLength": 2
+}
+
+========== user: end ===============================================================================
+
+========== assistant: start ========================================================================
+
+Tool Use `sequentialthinking` with args:
+    nextThoughtNeeded: True
+    thought: Now let me think about more RSRs that involve three or more evaluations at random correlated points. The key idea is that we can split x into multiple parts and use the multiplicative property.
+
+3-point RSRs:
+- f(x) = f(x+2r)*f(-r)*f(-r) → from splitting x = (x+2r) + (-r) + (-r). So f(x) - f(x+2r)*f(-r)**2 = 0
+- f(x) = f(x-r)*f(r) → already noted, this is 2-point
+- f(x) = f(x+r)*f(-r) → already noted, 2-point
+- f(x+y+z) = f(x)*f(y)*f(z), so f(x) = f(x-a-b)*f(a)*f(b) → f(x) - f(x-a-b)*f(a)*f(b) = 0, replacing a=r, b=s: f(x) - f(x-r-s)*f(r)*f(s) = 0, and with s=r: f(x) - f(x-2r)*f(r)**2 = 0
+- f(x) = f(x+r+s)*f(-r)*f(-s) → f(x) - f(x+r+s)*f(-r)*f(-s) = 0, with s=r: f(x) - f(x+2r)*f(-r)**2 = 0
+
+Difference-based RSRs:
+- f(x+y) - f(x)*f(y) = 0 (the fundamental one)
+- f(x-y) - f(x)*f(-y) = 0, equivalently f(x-y)*f(y) - f(x) = 0
+- f(x+y) - f(x-y) - f(x)*f(y) + f(x)*f(-y) = 0... that's trivially 0, not useful
+
+What about relations involving f(2x)?
+- f(2x) = f(x)^2 → f(2x) - f(x)**2 = 0
+- f(3x) = f(x)^3 → f(3x) - f(x)**3 = 0
+- f(nx) = f(x)^n → f(n*x) - f(x)**n = 0
+
+These are all consequences of the functional equation. Let me also think about:
+- f(x+y)*f(x-y) = f(x)^2 * f(y)^2 / f(x)^2... no wait: f(x+y)*f(x-y) = f(2x)/f(0)... no.
+  f(x+y) = f(x)*f(y), f(x-y) = f(x)*f(-y) = f(x)/f(y)
+  So f(x+y)*f(x-y) = f(x)^2*f(y)*f(-y) = f(x)^2 * 1 = f(x)^2
+  So f(x+y)*f(x-y) - f(x)**2 = 0 → This is a great RSR! We can compute f(x) from f(x+y) and f(x-y).
+
+- More generally: f(x+y)*f(x-y) = f(2x) since f(x+y)*f(x-y) = f(x)*f(y)*f(x)*f(-y) = f(x)^2 * f(y)/f(y) = f(x)^2. Wait, that gives f(x)^2, not f(2x). But f(2x) = f(x)^2, so they're the same.
+
+- f(x+y)/f(x-y) = f(y)^2 / 1 = f(2y). Actually: f(x+y)/f(x-y) = f(x)*f(y) / (f(x)*f(-y)) = f(y)/f(-y) = f(y)^2 = f(2y).
+  So f(x+y)/f(x-y) - f(2*y) = 0, or equivalently f(x+y) - f(x-y)*f(2*y) = 0.
+  Also: f(x+y)*f(x-y) - f(2*x) = 0 (since f(2x) = f(x)^2). Wait no, f(x+y)*f(x-y) = f(x)^2 = f(2x). Yes! So f(x+y)*f(x-y) - f(2*x) = 0.
+
+Let me also think about:
+- f(x+y) + f(x-y) = f(x)*f(y) + f(x)*f(-y) = f(x)*(f(y) + 1/f(y)) = f(x)*(f(y) + f(-y))
+  So f(x+y) + f(x-y) - f(x)*(f(y) + f(-y)) = 0. This is nice but involves f(x) itself on the RHS, so it's more of a relation than an RSR for computing f(x).
+
+  But if we want to compute f(x): f(x) = (f(x+y) + f(x-y)) / (f(y) + f(-y)). So:
+  f(x)*(f(y) + f(-y)) - f(x+y) - f(x-y) = 0
+  Or: f(x) - (f(x+y) + f(x-y)) / (f(y) + f(-y)) = 0
+
+  In zero-equality form: f(x)*(f(y) + f(-y)) - f(x+y) - f(x-y) = 0
+
+- Similarly: f(x+y) - f(x-y) = f(x)*f(y) - f(x)*f(-y) = f(x)*(f(y) - f(-y))
+  So f(x+y) - f(x-y) - f(x)*(f(y) - f(-y)) = 0
+
+These are reminiscent of the cosh/sinh-like identities for exp.
+    thoughtNumber: 3
+    totalThoughts: 4
+
+========== assistant: end ==========================================================================
+
+========== user: start =============================================================================
+
+Tool Result `sequentialthinking`:
+    status: success
+    content:
+        {
+  "thoughtNumber": 3,
+  "totalThoughts": 4,
+  "nextThoughtNeeded": true,
+  "branches": [],
+  "thoughtHistoryLength": 3
+}
+
+========== user: end ===============================================================================
+
+========== assistant: start ========================================================================
+
+Tool Use `sequentialthinking` with args:
+    nextThoughtNeeded: False
+    thought: Let me compile all verified properties:
+
+1. f(x+y) - f(x)*f(y) = 0 — fundamental functional equation
+2. f(x) - f(x-r)*f(r) = 0 — split x = (x-r) + r
+3. f(x) - f(x+r)*f(-r) = 0 — split x = (x+r) + (-r)
+4. f(-x)*f(x) - 1 = 0 — f(-x) = 1/f(x)
+5. f(x-y) - f(x)*f(-y) = 0 — from f(x-y) = f(x)/f(y)
+6. f(x-y)*f(y) - f(x) = 0 — same as above, rearranged
+7. f(x+y)*f(x-y) - f(x)**2 = 0 — product identity
+8. f(x+y)*f(x-y) - f(2*x) = 0 — since f(2x) = f(x)^2
+9. f(2*x) - f(x)**2 = 0 — doubling formula
+10. f(3*x) - f(x)**3 = 0 — tripling formula
+11. f(n*x) - f(x)**n = 0 — general, but n must be symbolic
+12. f(x) - f(x-r-s)*f(r)*f(s) = 0 — three-way split
+13. f(x) - f(x-2*r)*f(r)**2 = 0 — special case of above with s=r
+14. f(x) - f(x+2*r)*f(-r)**2 = 0 — with s=-r
+15. f(x+y) + f(x-y) - f(x)*(f(y) + f(-y)) = 0 — cosh-like identity
+16. f(x+y) - f(x-y) - f(x)*(f(y) - f(-y)) = 0 — sinh-like identity
+17. f(x+y)/f(x-y) - f(2*y) = 0 — ratio identity, or f(x+y) - f(x-y)*f(2*y) = 0
+18. f(x+y)/f(x-y) - f(y)**2 = 0 — same as above since f(2y) = f(y)^2
+
+Let me also think about whether there are other interesting ones:
+- f(x+y+z) - f(x)*f(y)*f(z) = 0 — three-way functional equation
+- f(x+y) - f(x)*f(y) = 0 already covers the 2-way case
+- f(x-r)*f(y+r) - f(x)*f(y) = 0 — since f(x-r)*f(y+r) = f(x-r+y+r) = f(x+y) = f(x)*f(y) when... wait: f(x-r)*f(y+r) = f((x-r)+(y+r)) = f(x+y). So f(x-r)*f(y+r) - f(x+y) = 0. With y=0: f(x-r)*f(r) - f(x) = 0, which is property 2.
+
+Let me also consider:
+- f(x-r)*f(x+r) - f(2*x) = 0 — already captured by property 8 with y=r
+- f(a)*f(b) - f(a+b) = 0 — same as property 1
+- f(x+r) - f(x)*f(r) = 0 — from property 1 with y=r
+- f(x-r) - f(x)*f(-r) = 0 — from property 5 with y=r
+- f(x-r) - f(x)/f(r) = 0 — equivalent to above
+
+Some more:
+- f(0) - 1 = 0
+- f(x+y) - f(x+y-r)*f(r) = 0 — trivially true but it's just property 2 applied at point x+y
+- f(x+y) - f(x)*f(y) = 0 — already have this
+
+I think I have a comprehensive set. Let me also check:
+- f(x+y+z) - f(x+y)*f(z) = 0 — this follows from the functional equation
+- f(x+y+z) - f(x)*f(y)*f(z) = 0 — follows by applying twice
+
+These are all valid. Let me also think about whether there are non-trivial RSRs that don't just follow from the multiplicative property. For exp, the multiplicative property is really the fundamental one, and everything follows from it. There aren't other algebraic structures to exploit.
+
+Let me finalize my list of the most useful and distinct RSRs.
+    thoughtNumber: 4
+    totalThoughts: 4
+
+========== assistant: end ==========================================================================
+
+========== user: start =============================================================================
+
+Tool Result `sequentialthinking`:
+    status: success
+    content:
+        {
+  "thoughtNumber": 4,
+  "totalThoughts": 4,
+  "nextThoughtNeeded": false,
+  "branches": [],
+  "thoughtHistoryLength": 4
+}
+
+========== user: end ===============================================================================
+
+========== assistant: start ========================================================================
+
+<reasoning>
+The function is f(x) = exp(x), the exponential function. Its fundamental mathematical structure is governed by the **functional equation** f(x+y) = f(x)·f(y). This single identity generates a rich family of randomized self-reductions:
+
+**Why the functional equation holds:** exp(x+y) = exp(x)·exp(y) is a defining property of the exponential function, arising from the power series exp(x) = Σ xⁿ/n! and the binomial structure of (x+y)ⁿ.
+
+**Derived RSRs:**
+
+1. **Basic splitting (2-point):** Since x = (x−r) + r, we get f(x) = f(x−r)·f(r). Similarly f(x) = f(x+r)·f(−r). These let us compute f(x) by evaluating at a shifted point and at the shift itself.
+
+2. **Inverse property:** f(−x)·f(x) = 1, since exp(−x) = 1/exp(x).
+
+3. **Product identity:** f(x+y)·f(x−y) = f(x)²·f(y)·f(−y) = f(x)² = f(2x). This is a powerful 3-point RSR: knowing f at x+y, x−y, and 2x (or x) lets us verify consistency.
+
+4. **Ratio identity:** f(x+y)/f(x−y) = f(y)/f(−y) = f(y)² = f(2y). This gives another 3-point relationship.
+
+5. **Doubling/tripling:** f(2x) = f(x)², f(3x) = f(x)³, and generally f(nx) = f(x)ⁿ.
+
+6. **Three-way splitting:** f(x) = f(x−r−s)·f(r)·f(s), allowing f(x) to be computed from three correlated points.
+
+7. **Cosh/sinh-like identities:** Since f(x+y) + f(x−y) = f(x)·(f(y) + f(−y)) and f(x+y) − f(x−y) = f(x)·(f(y) − f(−y)), we get RSRs where f(x) is recovered as a ratio of sums/differences.
+
+8. **Invariance under reparametrization:** f(x−r)·f(y+r) = f(x+y), showing that the sum f(x+y) is invariant under transferring r between the arguments.
+
+All properties have been verified algebraically from the fundamental functional equation.
+</reasoning>
+
+<answer>
+Eq(f(x+y) - f(x)*f(y), 0)
+Eq(f(x) - f(x-r)*f(r), 0)
+Eq(f(x) - f(x+r)*f(-r), 0)
+Eq(f(-x)*f(x) - 1, 0)
+Eq(f(x-y) - f(x)*f(-y), 0)
+Eq(f(x-y)*f(y) - f(x), 0)
+Eq(f(x+y)*f(x-y) - f(x)**2, 0)
+Eq(f(x+y)*f(x-y) - f(2*x), 0)
+Eq(f(2*x) - f(x)**2, 0)
+Eq(f(3*x) - f(x)**3, 0)
+Eq(f(x) - f(x-r-s)*f(r)*f(s), 0)
+Eq(f(x) - f(x-2*r)*f(r)**2, 0)
+Eq(f(x) - f(x+2*r)*f(-r)**2, 0)
+Eq(f(x+y) + f(x-y) - f(x)*(f(y) + f(-y)), 0)
+Eq(f(x+y) - f(x-y) - f(x)*(f(y) - f(-y)), 0)
+Eq(f(x+y) - f(x-y)*f(2*y), 0)
+Eq(f(x+y) - f(x-y)*f(y)**2, 0)
+Eq(f(x-r)*f(y+r) - f(x+y), 0)
+Eq(f(x+y+z) - f(x)*f(y)*f(z), 0)
+Eq(f(x+r) - f(x)*f(r), 0)
+Eq(f(0) - 1, 0)
+</answer>
+
+========== assistant: end ==========================================================================
+
+
+
+===Answers===
+Eq(f(x+y) - f(x)*f(y), 0)
+Eq(f(x) - f(x-r)*f(r), 0)
+Eq(f(x) - f(x+r)*f(-r), 0)
+Eq(f(-x)*f(x) - 1, 0)
+Eq(f(x-y) - f(x)*f(-y), 0)
+Eq(f(x-y)*f(y) - f(x), 0)
+Eq(f(x+y)*f(x-y) - f(x)**2, 0)
+Eq(f(x+y)*f(x-y) - f(2*x), 0)
+Eq(f(2*x) - f(x)**2, 0)
+Eq(f(3*x) - f(x)**3, 0)
+Eq(f(x) - f(x-r-s)*f(r)*f(s), 0)
+Eq(f(x) - f(x-2*r)*f(r)**2, 0)
+Eq(f(x) - f(x+2*r)*f(-r)**2, 0)
+Eq(f(x+y) + f(x-y) - f(x)*(f(y) + f(-y)), 0)
+Eq(f(x+y) - f(x-y) - f(x)*(f(y) - f(-y)), 0)
+Eq(f(x+y) - f(x-y)*f(2*y), 0)
+Eq(f(x+y) - f(x-y)*f(y)**2, 0)
+Eq(f(x-r)*f(y+r) - f(x+y), 0)
+Eq(f(x+y+z) - f(x)*f(y)*f(z), 0)
+Eq(f(x+r) - f(x)*f(r), 0)
+Eq(f(0) - 1, 0)
+
+
+
+Verified (21):
+Eq(f(x+y) - f(x)*f(y), 0)
+Eq(f(x) - f(x-r)*f(r), 0)
+Eq(f(x) - f(x+r)*f(-r), 0)
+Eq(f(-x)*f(x) - 1, 0)
+Eq(f(x-y) - f(x)*f(-y), 0)
+Eq(f(x-y)*f(y) - f(x), 0)
+Eq(f(x+y)*f(x-y) - f(x)**2, 0)
+Eq(f(x+y)*f(x-y) - f(2*x), 0)
+Eq(f(2*x) - f(x)**2, 0)
+Eq(f(3*x) - f(x)**3, 0)
+Eq(f(x) - f(x-r-s)*f(r)*f(s), 0)
+Eq(f(x) - f(x-2*r)*f(r)**2, 0)
+Eq(f(x) - f(x+2*r)*f(-r)**2, 0)
+Eq(f(x+y) + f(x-y) - f(x)*(f(y) + f(-y)), 0)
+Eq(f(x+y) - f(x-y) - f(x)*(f(y) - f(-y)), 0)
+Eq(f(x+y) - f(x-y)*f(2*y), 0)
+Eq(f(x+y) - f(x-y)*f(y)**2, 0)
+Eq(f(x-r)*f(y+r) - f(x+y), 0)
+Eq(f(x+y+z) - f(x)*f(y)*f(z), 0)
+Eq(f(x+r) - f(x)*f(r), 0)
+Eq(f(0) - 1, 0)
+
+Took time: 108.55s

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "title": "Repro - Learning Randomized Reductions (Bitween)",
+  "emoji": "🎯",
+  "space_id": "DineshAI/hCAEcqig2C",
+  "paper": {
+    "arxiv_id": "2412.18134",
+    "openreview_id": "hCAEcqig2C"
+  },
+  "tags": [
+    "icml2026-repro",
+    "paper-hCAEcqig2C"
+  ],
+  "updated_at": "2026-07-17T11:17:16+00:00",
+  "root": {
+    "slug": "index",
+    "title": "Repro - Learning Randomized Reductions (Bitween)",
+    "file": "pages/index.md",
+    "children": [
+      {
+        "slug": "claim-1-vanilla-bitwen-finds-43-80-rsrs-54-incl-sigmoid",
+        "title": "Claim 1: Vanilla Bitwen finds ~43/80 RSRs (54%) incl. sigmoid",
+        "file": "pages/claim-1-vanilla-bitwen-finds-43-80-rsrs-54-incl-sigmoid/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-2-agentic-bitwen-finds-64-80-rsrs-80",
+        "title": "Claim 2: Agentic Bitwen finds 64/80 RSRs (80%)",
+        "file": "pages/claim-2-agentic-bitwen-finds-64-80-rsrs-80/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-3-agentic-outperforms-neural-baselines",
+        "title": "Claim 3: Agentic outperforms neural baselines",
+        "file": "pages/claim-3-agentic-outperforms-neural-baselines/page.md",
+        "children": []
+      },
+      {
+        "slug": "methods-and-environment",
+        "title": "Methods and environment",
+        "file": "pages/methods-and-environment/page.md",
+        "children": []
+      },
+      {
+        "slug": "negative-controls-and-falsification",
+        "title": "Negative controls and falsification",
+        "file": "pages/negative-controls-and-falsification/page.md",
+        "children": []
+      },
+      {
+        "slug": "conclusion",
+        "title": "Conclusion",
+        "file": "pages/conclusion/page.md",
+        "children": []
+      }
+    ]
+  },
+  "agent_view_tokens": 7651,
+  "revision": "1784287036884383370"
+}

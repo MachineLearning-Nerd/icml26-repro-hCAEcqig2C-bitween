@@ -1,0 +1,68 @@
+### 2026-07-16T12:11:53Z START abitween-s2 ###
+### 2026-07-16T12:30:04Z END   abitween-s2 exit=0 ###
+### 2026-07-16T12:30:04Z START neural-s2 ###
+### 2026-07-16T12:39:11Z END   neural-s2 exit=0 ###
+### 2026-07-16T12:39:11Z START abitween-s3 ###
+### 2026-07-16T12:55:16Z END   abitween-s3 exit=0 ###
+### 2026-07-16T12:55:16Z START neural-s3 ###
+### 2026-07-16T13:07:34Z END   neural-s3 exit=0 ###
+=== per-seed single-run comparison ===
+======================================================================
+Claim 3: Agentic Bitwen vs Neural-Research baseline
+======================================================================
+metric                                   A-Bitwen         Neural
+----------------------------------------------------------------------
+  functions attempted                          80             80
+  functions with >=1 RSR                       73             74
+  RSR coverage %                            91.2%          92.5%
+  total verified identities                   320            369
+  total unverified candidates                  39            107
+  verification accuracy                    89.1%         77.5%
+  total tokens                                  0              0
+----------------------------------------------------------------------
+Claim 3 outcome: MIXED/see numbers
+======================================================================
+Claim 3: Agentic Bitwen vs Neural-Research baseline
+======================================================================
+metric                                   A-Bitwen         Neural
+----------------------------------------------------------------------
+  functions attempted                          80             80
+  functions with >=1 RSR                       72             77
+  RSR coverage %                            90.0%          96.2%
+  total verified identities                   326            356
+  total unverified candidates                  32             80
+  verification accuracy                    91.1%         81.7%
+  total tokens                                  0              0
+----------------------------------------------------------------------
+Claim 3 outcome: MIXED/see numbers
+======================================================================
+Claim 3: Agentic Bitwen vs Neural-Research baseline
+======================================================================
+metric                                   A-Bitwen         Neural
+----------------------------------------------------------------------
+  functions attempted                          80             80
+  functions with >=1 RSR                       71             72
+  RSR coverage %                            88.8%          90.0%
+  total verified identities                   322            344
+  total unverified candidates                  39             94
+  verification accuracy                    89.2%         78.5%
+  total tokens                                  0              0
+----------------------------------------------------------------------
+Claim 3 outcome: MIXED/see numbers
+=== 3-SEED UNION ===
+==========================================================================
+Claim 3 UNION over seeds (agentic 3 seed(s) vs neural 3 seed(s))
+==========================================================================
+metric                                       A-Bitwen           Neural
+--------------------------------------------------------------------------
+  functions                                        80               80
+  union covered (>=1 RSR in any seed)               79               78
+  union coverage %                              98.8%            97.5%
+  verified identities (best/func)                 430              448
+  unverified candidates (min/func)                 13               50
+  union verification accuracy                  97.1%           90.0%
+  best single-seed verify accuracy             91.1%           81.7%
+  pooled verify accuracy (all seeds)           89.8%           79.2%
+--------------------------------------------------------------------------
+Claim 3 union outcome: AGENTIC > NEURAL on discovery AND verification
+MULTISEED_DONE 2026-07-16T13:07:35Z
