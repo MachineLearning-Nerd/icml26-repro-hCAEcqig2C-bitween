@@ -1,0 +1,36 @@
+{
+  "run_id": "63efb31b-a80c-4aff-90e0-52a24e81f061",
+  "git_sha": "c7fd7c901d0d362ffe48876f380fd9567d00dcbc",
+  "binary_paper_witness": {
+    "epsilon_equal_half": "REJECTED_AS_WITNESS",
+    "distinct_function_error": 0.5,
+    "recovery_checks_by_n": {
+      "1": 8,
+      "2": 64,
+      "3": 512,
+      "4": 4096,
+      "5": 32768,
+      "6": 262144,
+      "7": 2097152
+    }
+  },
+  "ternary_independent_witness": {
+    "epsilon_at_most_half_requires_exact_identification": true,
+    "distinct_function_error": 0.6666666666666666,
+    "recovery_checks_by_n": {
+      "1": 27,
+      "2": 729,
+      "3": 19683,
+      "4": 531441
+    },
+    "zero_sample_blr_rsr": "VERIFIED"
+  },
+  "negative_control": {
+    "mutation": "recovery omits f(r)",
+    "expected": "REJECT",
+    "observed": "REJECT",
+    "failing_assignments": 432
+  },
+  "stage_runtime_seconds": 13.224633,
+  "verdict": "VERIFIED"
+}

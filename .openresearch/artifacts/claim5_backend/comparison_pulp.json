@@ -1,0 +1,42 @@
+{
+  "legacy_sample_metric_limitation": "current v5 harness reports a derived average sample-complexity value, not the v1 used/budget table field",
+  "lr": {
+    "coverage": 41,
+    "faulty": 0,
+    "functions": 80,
+    "mean_reported_sample_complexity": 53.71548333388689,
+    "mean_time_s": 11.938875,
+    "sample_complexity_observed_functions": 63,
+    "total_reported_sample_complexity": 3384.075450034874,
+    "total_time_s": 955.11,
+    "verified_identities": 88
+  },
+  "milp": {
+    "coverage": 39,
+    "faulty": 0,
+    "functions": 80,
+    "mean_reported_sample_complexity": 25.641695565080912,
+    "mean_time_s": 17.180875,
+    "sample_complexity_observed_functions": 46,
+    "total_reported_sample_complexity": 1179.517995993722,
+    "total_time_s": 1374.47,
+    "verified_identities": 66
+  },
+  "negative_control": {
+    "mutation": "swap LR/MILP labels",
+    "observed": "REJECT"
+  },
+  "paired_direction": {
+    "equal_time": 0,
+    "equal_verified": 59,
+    "lr_faster": 42,
+    "lr_more_verified": 13,
+    "milp_faster": 38,
+    "milp_more_verified": 8
+  },
+  "schema_version": 1,
+  "scope": "fresh paired full 80-function RSR-Bench",
+  "solver": "pulp",
+  "v5_exact_directional_contract": "PASS",
+  "verdict": "VERIFIED"
+}

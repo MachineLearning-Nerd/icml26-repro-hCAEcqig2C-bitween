@@ -1,3 +1,61 @@
+# Five-claim reproduction: Learning Randomized Reductions
+
+[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/blob/main/notebooks/learning_randomized_reductions.py)
+
+This repository now tests all five claims used by the live evaluator for
+[*Learning Randomized Reductions*](https://arxiv.org/abs/2412.18134). The
+campaign reconstructs the Section 4 theory, reruns the full 80-function
+RSR-Bench, preserves the accepted vanilla and agentic results, and adds fresh
+paired regression/MILP comparisons.
+
+The strongest current assessment is **five VERIFIED, version-resolved
+claims**, but this is not a new judge result. The public logbook remains at
+**6/10** until the live evaluator reviews the new revision. The conservative
+forecast is **8–10/10** and the best-supported possible score is **10/10**.
+
+Headline numbers:
+
+- Section 4: the exact existential result is independently reconstructed; the
+  paper's binary proof witness is invalid at `epsilon = 1/2`, while a ternary
+  witness repairs the proof without weakening the stated theorem.
+- Vanilla Bitween: paper `43/80`; frozen baseline `43/80`, 91 verified
+  identities, zero faulty; seeded cumulative runs `40–41/80`, 88 identities.
+- Agentic Bitween: paper `64/80`; preserved full-scale run `73/80`, 320
+  verified identities, zero faulty under the reproduction's broader coverage
+  metric.
+- Backend comparison: fresh full-80 LR/Gurobi coverage `40/37`, verified
+  identities `88/69`, and mean runtime `12.008/17.791 s`. The legacy v1 table
+  sums to LR/MILP sample use `607/1180` and runtime `227.10/308.64 s`.
+
+Every scientific job used Hugging Face `cpu-upgrade` (8 vCPUs, 32 GB, no
+GPU). The code is pinned through `uv.lock`; all branches inherit one fixed
+command and vary only committed configuration. The detailed
+[visual report](reports/five-claim-reproduction/report.md) separates exact
+paper statements, observed evidence, controls, substitutions, and remaining
+risk. The [tutorial notebook](notebooks/learning_randomized_reductions.py)
+opens with embedded evidence and does not rerun expensive experiments.
+
+## Experiment log
+
+| Branch / experiment | Purpose or change | Exact run command | Assessment / outcome | Compute |
+|---|---|---|---|---|
+| [`main`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/main) | Public README, report, notebook, and release surface | Not run as an experiment (publication surface) | Presentation only | None |
+| [`orx/frozen-6-of-10-baseline`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/frozen-6-of-10-baseline) | Freeze and rerun the previously accepted 80-function evidence | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | 80 IDs; vanilla 43/80, 91 verified, zero faulty; accepted agentic evidence rechecked | HF `cpu-upgrade`, 8 vCPU, 32 GB, 18m27s |
+| [`orx/exact-section-4-contract-and-boundary-audit`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/exact-section-4-contract-and-boundary-audit) | Proof-level Claim 1 reconstruction and boundary control | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | Exact theorem verified; defective binary witness rejected; cumulative checks pass | HF `cpu-upgrade`, 8 vCPU, 32 GB, 21m08s |
+| [`orx/backend-claim-source-contract-and-harness`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/backend-claim-source-contract-and-harness) | Hash and reconcile v1/v5 source statements before testing Claim 5 | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | v1 complete table and v5 contracts pass; source mismatch exposed | HF `cpu-upgrade`, 8 vCPU, 32 GB, 22m28s |
+| [`orx/fresh-full-80-gurobi-milp-comparison`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/fresh-full-80-gurobi-milp-comparison) | Paper-relevant paired LR versus eager Gurobi MILP | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | LR/MILP coverage 40/37, identities 88/69, mean runtime 12.008/17.791 s; swap control rejected | HF `cpu-upgrade`, 8 vCPU, 32 GB, 41m34s |
+| [`orx/fresh-full-80-pulp-milp-robustness`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/fresh-full-80-pulp-milp-robustness) | Open-source solver robustness route | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | LR/MILP coverage 41/39, identities 88/66, mean runtime 11.939/17.181 s; swap control rejected | HF `cpu-upgrade`, 8 vCPU, 32 GB, 40m30s |
+
+Local notebook use:
+
+```bash
+uv sync --frozen
+uv run marimo edit notebooks/learning_randomized_reductions.py
+uv run marimo run notebooks/learning_randomized_reductions.py
+```
+
+## Historical baseline README (preserved)
+
 # Repro — Learning Randomized Reductions (Bitwen), ICML 2026
 
 Reproduction of *Learning Randomized Reductions* (Bitwen) for the

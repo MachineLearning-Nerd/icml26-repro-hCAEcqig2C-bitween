@@ -1,0 +1,42 @@
+{
+  "legacy_sample_metric_limitation": "current v5 harness reports a derived average sample-complexity value, not the v1 used/budget table field",
+  "lr": {
+    "coverage": 40,
+    "faulty": 0,
+    "functions": 80,
+    "mean_reported_sample_complexity": 54.873382678549646,
+    "mean_time_s": 12.008375,
+    "sample_complexity_observed_functions": 61,
+    "total_reported_sample_complexity": 3347.2763433915284,
+    "total_time_s": 960.67,
+    "verified_identities": 88
+  },
+  "milp": {
+    "coverage": 37,
+    "faulty": 0,
+    "functions": 80,
+    "mean_reported_sample_complexity": 26.43959566269497,
+    "mean_time_s": 17.790875,
+    "sample_complexity_observed_functions": 46,
+    "total_reported_sample_complexity": 1216.2214004839686,
+    "total_time_s": 1423.27,
+    "verified_identities": 69
+  },
+  "negative_control": {
+    "mutation": "swap LR/MILP labels",
+    "observed": "REJECT"
+  },
+  "paired_direction": {
+    "equal_time": 0,
+    "equal_verified": 50,
+    "lr_faster": 50,
+    "lr_more_verified": 18,
+    "milp_faster": 30,
+    "milp_more_verified": 12
+  },
+  "schema_version": 1,
+  "scope": "fresh paired full 80-function RSR-Bench",
+  "solver": "gurobi",
+  "v5_exact_directional_contract": "PASS",
+  "verdict": "VERIFIED"
+}
