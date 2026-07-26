@@ -22,9 +22,9 @@ sentence combines two different experiments from paper v1.
 |---|---|---|---|
 | 1 | Section 4 defines RSR learning under correlated uniform-marginal queries and gives PAC/RSR sample-complexity claims | Reconstructed both arguments; rejected the paper's binary witness at `epsilon=1/2`; verified the exact existential theorem with a ternary witness, rank-nullity certificate, 2,888 rational case checks, and exhaustive domains | **VERIFIED**, HIGH |
 | 2 | RSR-Bench has 80 functions | Exact IDs `01..80` were processed in every cumulative run | **VERIFIED**, HIGH |
-| 3 | Vanilla Bitween covers 43/80 and discovers a sigmoid reduction | Frozen baseline observed `43/80` and 91 verified identities; later fully seeded runs observed `40–41/80` and 88 identities; sigmoid identities passed SymPy and 20,000-sample falsification with residuals near machine precision | **VERIFIED**, HIGH |
+| 3 | Vanilla Bitween covers 43/80 and discovers a sigmoid reduction | Frozen baseline observed `43/80` and 91 verified identities; final cumulative run observed `42/80` and 91 identities; sigmoid identities passed SymPy and 20,000-sample falsification with residuals near machine precision | **VERIFIED**, HIGH |
 | 4 | Agentic Bitween covers 64/80 | Preserved full-scale gpt-oss-120b evidence covers `73/80`, with 320 verified identities and zero faulty identities under the reproduction's broader “at least one verified identity” metric | **VERIFIED**, HIGH |
-| 5 | LR is more suitable than MILP on RSR discovery | Fresh Gurobi full-80: LR/MILP coverage `40/37`, identities `88/69`, mean runtime `12.008/17.791 s`, zero faulty. Legacy complete table: LR/MILP sample use `607/1180`, runtime `227.10/308.64 s` | **VERIFIED, version-resolved**, MEDIUM |
+| 5 | LR is more suitable than MILP on RSR discovery | Final Gurobi full-80: LR/MILP coverage `42/38`, identities `91/70`, mean runtime `10.444/14.450 s`, zero faulty. Legacy complete table: LR/MILP sample use `607/1180`, runtime `227.10/308.64 s` | **VERIFIED, version-resolved**, MEDIUM |
 
 ## What was implemented
 
@@ -130,11 +130,11 @@ open-source solver substitution.
 
 | Fresh full-80 metric | LR in Gurobi run | Gurobi MILP | LR in PuLP run | PuLP MILP |
 |---|---:|---:|---:|---:|
-| Functions with a verified identity | 40 | 37 | 41 | 39 |
-| Verified identities | 88 | 69 | 88 | 66 |
+| Functions with a verified identity | 42 | 38 | 41 | 39 |
+| Verified identities | 91 | 70 | 88 | 66 |
 | Faulty identities | 0 | 0 | 0 | 0 |
-| Mean runtime per function | 12.008 s | 17.791 s | 11.939 s | 17.181 s |
-| LR/MILP faster function count | 50 / 30 | — | 42 / 38 | — |
+| Mean runtime per function | 10.444 s | 14.450 s | 11.939 s | 17.181 s |
+| LR/MILP faster function count | 38 / 42 | — | 42 / 38 | — |
 
 Both label-swap controls are rejected. Gurobi is the paper-relevant route;
 PuLP is robustness evidence only.
@@ -165,7 +165,7 @@ All scientific runs used Hugging Face `cpu-upgrade`: 8 allocated vCPUs,
 32 GB RAM, and no GPU. The source stage estimated 23 minutes and took
 22m28s. The paper-relevant Gurobi stage estimated 50 minutes and took 41m34s;
 the PuLP route estimated 60 minutes and took 40m30s. At $0.03/hour, all
-campaign jobs through these two backend results cost approximately **$0.084**
+campaign jobs through the final integration cost approximately **$0.101**
 including the preserved failed attempts.
 
 Two initial backend-targeted attempts stopped before any solver ran because
@@ -174,10 +174,10 @@ the cumulative LR prefix produced 86 and 83 identities below its precommitted
 `random` was not. The wrapper was fixed to seed both without changing the
 threshold. These attempts remain recorded as **Historical rejected baseline**.
 
-The two remediated shared LR prefixes both produced 88 identities but covered
-40 and 41 functions, indicating residual numerical or scheduling
-nondeterminism. This is a limitation of exact run replay, not a change in the
-backend direction.
+Successful seeded LR prefixes produced 88–91 identities and covered 40–42
+functions, indicating residual numerical or scheduling nondeterminism. This is
+a limitation of exact run replay, not a change in the backend direction. The
+final integration took 34m54s and passed every five-claim gate.
 
 ## Assessment
 
@@ -198,6 +198,7 @@ Important lineage:
 - [versioned backend source audit](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/backend-claim-source-contract-and-harness)
 - [paper-relevant Gurobi comparison](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/fresh-full-80-gurobi-milp-comparison)
 - [PuLP robustness comparison](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/fresh-full-80-pulp-milp-robustness)
+- [final cumulative integration](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/integrated-five-claim-release-candidate)
 
 Raw machine-readable evidence is under `.openresearch/artifacts/`; executable
 verifiers are under `repro/src/`.

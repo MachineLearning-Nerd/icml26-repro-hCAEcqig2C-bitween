@@ -31,11 +31,14 @@ All formal scientific jobs used Hugging Face `cpu-upgrade`: 8 allocated vCPUs,
 | Versioned source audit | 8 | 23 min | 22m28s | $0.0112 |
 | Gurobi full-80 comparison | 8 | 50 min | 41m34s | $0.0208 |
 | PuLP full-80 comparison | 8 | 60 min | 40m30s | $0.0203 |
+| Final cumulative integration | 8 | 50 min | 34m54s | $0.0175 |
 
 Seed 42 is applied to both Python `random` and NumPy. Two pre-solver attempts
 exposed the earlier missing Python seed and remain labeled Historical rejected
-baseline. The successful Gurobi run is Git SHA `39b5adf`; the successful PuLP
-run is Git SHA `ffa7b98`. Full provenance, including rejected attempts, is
+baseline. The initial Gurobi run is Git SHA `39b5adf`; the successful PuLP
+run is Git SHA `ffa7b98`; the final cumulative winner is Git SHA
+`519ae8d1bc86054e48797dc2f02076844a4cea7f`. Full provenance, including
+rejected attempts, is
 [downloadable JSON](../../evidence/claim5/backend_run_provenance.json).
 
 The report does not use `os.cpu_count()` as the allocation record because the

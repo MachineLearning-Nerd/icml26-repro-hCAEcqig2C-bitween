@@ -5,7 +5,7 @@
 | Claim | Exact tested contract | Observed evidence | Verdict |
 |---|---|---|---|
 | 2 | RSR-Bench contains exactly 80 functions | IDs span `01_identity` through `80_fourth`; exactly 80 logs and 80 canonical CSV rows | VERIFIED |
-| 3 | Vanilla Bitween discovers RSRs for 43/80, including the sigmoid reduction | Frozen full-scale run: 43/80, 91 verified identities, zero faulty; seeded cumulative backend runs: 40–41/80, 88 identities; sigmoid independently verified | VERIFIED |
+| 3 | Vanilla Bitween discovers RSRs for 43/80, including the sigmoid reduction | Frozen full-scale run: 43/80, 91 verified identities, zero faulty; final cumulative run: 42/80, 91 identities; sigmoid independently verified | VERIFIED |
 | 4 | Agentic Bitween discovers RSRs for 64/80 by proposing queries outside the fixed prior set | Preserved full-scale gpt-oss-120b run: 73/80 functions with at least one SymPy-verified identity, 320 verified, zero faulty | VERIFIED |
 
 All three have confidence **HIGH**.
@@ -67,7 +67,8 @@ omitted both exit through the required rejection path.
 The agentic number uses “at least one SymPy-verified identity” per function,
 which is broader than the paper's manually curated RSR count. It supports the
 64/80 claim but is not represented as an exact reimplementation of manual
-curation. Later LR coverage varies by one function despite explicit Python and
-NumPy seeding; identities remain at 88. This residual numerical/scheduling
-nondeterminism is disclosed, while the frozen 43/80 run and accepted sigmoid
-evidence remain preserved.
+curation. Successful seeded LR runs cover 40–42 functions with 88–91
+identities. This residual numerical/scheduling nondeterminism is disclosed,
+while the frozen 43/80 run and accepted sigmoid evidence remain preserved.
+The [final integration verdict](../../evidence/release/final_integration_verdict.json)
+records the latest cumulative pass.

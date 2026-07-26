@@ -55,14 +55,14 @@ def _(claims, mo):
 def _():
     backend = {
         "Regression (LR)": {
-            "coverage": 40,
-            "identities": 88,
-            "mean_runtime_s": 12.008375,
+            "coverage": 42,
+            "identities": 91,
+            "mean_runtime_s": 10.44425,
         },
         "Gurobi MILP": {
-            "coverage": 37,
-            "identities": 69,
-            "mean_runtime_s": 17.790875,
+            "coverage": 38,
+            "identities": 70,
+            "mean_runtime_s": 14.450125,
         },
     }
     return (backend,)

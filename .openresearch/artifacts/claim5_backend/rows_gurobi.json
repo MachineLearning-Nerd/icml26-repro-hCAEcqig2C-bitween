@@ -2,26 +2,26 @@
   "aggregate_cross_check": "PASS",
   "reconstructed_aggregate": {
     "lr": {
-      "coverage": 40,
+      "coverage": 42,
       "faulty": 0,
       "functions": 80,
-      "mean_reported_sample_complexity": 54.873382678549646,
-      "mean_time_s": 12.008375,
-      "sample_complexity_observed_functions": 61,
-      "total_reported_sample_complexity": 3347.2763433915284,
-      "total_time_s": 960.67,
-      "verified_identities": 88
+      "mean_reported_sample_complexity": 53.52221669304851,
+      "mean_time_s": 10.44425,
+      "sample_complexity_observed_functions": 64,
+      "total_reported_sample_complexity": 3425.421868355105,
+      "total_time_s": 835.54,
+      "verified_identities": 91
     },
     "milp": {
-      "coverage": 37,
+      "coverage": 38,
       "faulty": 0,
       "functions": 80,
-      "mean_reported_sample_complexity": 26.43959566269497,
-      "mean_time_s": 17.790875,
+      "mean_reported_sample_complexity": 26.449740590231198,
+      "mean_time_s": 14.450125,
       "sample_complexity_observed_functions": 46,
-      "total_reported_sample_complexity": 1216.2214004839686,
-      "total_time_s": 1423.27,
-      "verified_identities": 69
+      "total_reported_sample_complexity": 1216.688067150635,
+      "total_time_s": 1156.01,
+      "verified_identities": 70
     }
   },
   "row_count": 80,
@@ -33,7 +33,7 @@
         "id": "01_identity",
         "number": 1,
         "sample_complexity": 10.0,
-        "time_s": 2.14,
+        "time_s": 2.17,
         "verified": 2
       },
       "milp": {
@@ -41,7 +41,7 @@
         "id": "01_identity",
         "number": 1,
         "sample_complexity": 10.0,
-        "time_s": 2.59,
+        "time_s": 0.65,
         "verified": 2
       }
     },
@@ -52,7 +52,7 @@
         "id": "02_exp",
         "number": 2,
         "sample_complexity": 10.0,
-        "time_s": 2.71,
+        "time_s": 2.78,
         "verified": 2
       },
       "milp": {
@@ -60,7 +60,7 @@
         "id": "02_exp",
         "number": 2,
         "sample_complexity": 10.0,
-        "time_s": 1.41,
+        "time_s": 0.47,
         "verified": 2
       }
     },
@@ -71,7 +71,7 @@
         "id": "03_exp_minus_one",
         "number": 3,
         "sample_complexity": 20.0,
-        "time_s": 1.69,
+        "time_s": 1.77,
         "verified": 2
       },
       "milp": {
@@ -79,7 +79,7 @@
         "id": "03_exp_minus_one",
         "number": 3,
         "sample_complexity": 20.0,
-        "time_s": 7.62,
+        "time_s": 4.19,
         "verified": 2
       }
     },
@@ -90,7 +90,7 @@
         "id": "04_exp_div_by_x",
         "number": 4,
         "sample_complexity": null,
-        "time_s": 1.23,
+        "time_s": 1.41,
         "verified": 0
       },
       "milp": {
@@ -98,7 +98,7 @@
         "id": "04_exp_div_by_x",
         "number": 4,
         "sample_complexity": null,
-        "time_s": 0.21,
+        "time_s": 0.14,
         "verified": 0
       }
     },
@@ -109,7 +109,7 @@
         "id": "05_exp_div_by_x_composite",
         "number": 5,
         "sample_complexity": null,
-        "time_s": 2.6,
+        "time_s": 2.79,
         "verified": 0
       },
       "milp": {
@@ -117,7 +117,7 @@
         "id": "05_exp_div_by_x_composite",
         "number": 5,
         "sample_complexity": null,
-        "time_s": 12.34,
+        "time_s": 8.49,
         "verified": 0
       }
     },
@@ -128,7 +128,7 @@
         "id": "06_floudas",
         "number": 6,
         "sample_complexity": 15.0,
-        "time_s": 0.89,
+        "time_s": 0.83,
         "verified": 2
       },
       "milp": {
@@ -136,7 +136,7 @@
         "id": "06_floudas",
         "number": 6,
         "sample_complexity": 15.0,
-        "time_s": 6.0,
+        "time_s": 1.0,
         "verified": 2
       }
     },
@@ -147,7 +147,7 @@
         "id": "07_mean",
         "number": 7,
         "sample_complexity": 15.0,
-        "time_s": 0.43,
+        "time_s": 0.61,
         "verified": 4
       },
       "milp": {
@@ -155,7 +155,7 @@
         "id": "07_mean",
         "number": 7,
         "sample_complexity": null,
-        "time_s": 8.72,
+        "time_s": 7.9,
         "verified": 0
       }
     },
@@ -165,8 +165,8 @@
         "faulty": 0,
         "id": "08_tan",
         "number": 8,
-        "sample_complexity": 26.727272727272727,
-        "time_s": 6.29,
+        "sample_complexity": 30.0,
+        "time_s": 4.26,
         "verified": 3
       },
       "milp": {
@@ -174,7 +174,7 @@
         "id": "08_tan",
         "number": 8,
         "sample_complexity": 30.0,
-        "time_s": 25.88,
+        "time_s": 24.15,
         "verified": 1
       }
     },
@@ -185,15 +185,15 @@
         "id": "09_cot",
         "number": 9,
         "sample_complexity": 15.0,
-        "time_s": 5.77,
-        "verified": 3
+        "time_s": 5.13,
+        "verified": 1
       },
       "milp": {
         "faulty": 0,
         "id": "09_cot",
         "number": 9,
         "sample_complexity": 15.0,
-        "time_s": 46.51,
+        "time_s": 41.47,
         "verified": 3
       }
     },
@@ -203,8 +203,8 @@
         "faulty": 0,
         "id": "10_diff_squares",
         "number": 10,
-        "sample_complexity": 13.5,
-        "time_s": 5.87,
+        "sample_complexity": 12.774193548387096,
+        "time_s": 7.75,
         "verified": 3
       },
       "milp": {
@@ -212,7 +212,7 @@
         "id": "10_diff_squares",
         "number": 10,
         "sample_complexity": 15.0,
-        "time_s": 59.51,
+        "time_s": 54.97,
         "verified": 2
       }
     },
@@ -223,7 +223,7 @@
         "id": "11_inverse_square",
         "number": 11,
         "sample_complexity": null,
-        "time_s": 1.01,
+        "time_s": 1.35,
         "verified": 0
       },
       "milp": {
@@ -231,7 +231,7 @@
         "id": "11_inverse_square",
         "number": 11,
         "sample_complexity": 15.0,
-        "time_s": 1.75,
+        "time_s": 0.47,
         "verified": 1
       }
     },
@@ -241,8 +241,8 @@
         "faulty": 0,
         "id": "12_inverse",
         "number": 12,
-        "sample_complexity": 13.8,
-        "time_s": 1.26,
+        "sample_complexity": 15.0,
+        "time_s": 1.38,
         "verified": 3
       },
       "milp": {
@@ -250,7 +250,7 @@
         "id": "12_inverse",
         "number": 12,
         "sample_complexity": 15.0,
-        "time_s": 4.38,
+        "time_s": 1.96,
         "verified": 3
       }
     },
@@ -261,7 +261,7 @@
         "id": "13_inverse_add",
         "number": 13,
         "sample_complexity": 15.0,
-        "time_s": 1.29,
+        "time_s": 1.76,
         "verified": 1
       },
       "milp": {
@@ -269,7 +269,7 @@
         "id": "13_inverse_add",
         "number": 13,
         "sample_complexity": 15.0,
-        "time_s": 2.89,
+        "time_s": 0.49,
         "verified": 1
       }
     },
@@ -279,16 +279,16 @@
         "faulty": 0,
         "id": "14_inverse_cot_plus_one",
         "number": 14,
-        "sample_complexity": null,
-        "time_s": 4.72,
-        "verified": 0
+        "sample_complexity": 12.0,
+        "time_s": 4.69,
+        "verified": 1
       },
       "milp": {
         "faulty": 0,
         "id": "14_inverse_cot_plus_one",
         "number": 14,
         "sample_complexity": 15.0,
-        "time_s": 10.6,
+        "time_s": 5.35,
         "verified": 1
       }
     },
@@ -299,7 +299,7 @@
         "id": "15_inverse_tan_plus_one",
         "number": 15,
         "sample_complexity": null,
-        "time_s": 1.85,
+        "time_s": 2.94,
         "verified": 0
       },
       "milp": {
@@ -307,7 +307,7 @@
         "id": "15_inverse_tan_plus_one",
         "number": 15,
         "sample_complexity": 30.0,
-        "time_s": 1.42,
+        "time_s": 0.85,
         "verified": 1
       }
     },
@@ -317,16 +317,16 @@
         "faulty": 0,
         "id": "16_x_over_one_minus_x",
         "number": 16,
-        "sample_complexity": null,
-        "time_s": 1.51,
-        "verified": 0
+        "sample_complexity": 12.0,
+        "time_s": 2.14,
+        "verified": 1
       },
       "milp": {
         "faulty": 0,
         "id": "16_x_over_one_minus_x",
         "number": 16,
         "sample_complexity": 15.0,
-        "time_s": 3.54,
+        "time_s": 0.7,
         "verified": 1
       }
     },
@@ -336,16 +336,16 @@
         "faulty": 0,
         "id": "17_minus_x_over_one_minus_x",
         "number": 17,
-        "sample_complexity": null,
-        "time_s": 1.58,
-        "verified": 0
+        "sample_complexity": 12.0,
+        "time_s": 2.25,
+        "verified": 1
       },
       "milp": {
         "faulty": 0,
         "id": "17_minus_x_over_one_minus_x",
         "number": 17,
         "sample_complexity": 15.0,
-        "time_s": 2.16,
+        "time_s": 0.57,
         "verified": 1
       }
     },
@@ -355,16 +355,16 @@
         "faulty": 0,
         "id": "18_cos",
         "number": 18,
-        "sample_complexity": 12.6,
-        "time_s": 1.73,
-        "verified": 1
+        "sample_complexity": 12.75,
+        "time_s": 2.46,
+        "verified": 2
       },
       "milp": {
         "faulty": 0,
         "id": "18_cos",
         "number": 18,
         "sample_complexity": 15.0,
-        "time_s": 4.87,
+        "time_s": 1.89,
         "verified": 4
       }
     },
@@ -374,8 +374,8 @@
         "faulty": 0,
         "id": "19_cosh",
         "number": 19,
-        "sample_complexity": 13.0,
-        "time_s": 1.28,
+        "sample_complexity": 12.6,
+        "time_s": 1.78,
         "verified": 2
       },
       "milp": {
@@ -383,7 +383,7 @@
         "id": "19_cosh",
         "number": 19,
         "sample_complexity": 15.0,
-        "time_s": 5.35,
+        "time_s": 2.2,
         "verified": 4
       }
     },
@@ -394,7 +394,7 @@
         "id": "20_squared",
         "number": 20,
         "sample_complexity": 13.695652173913043,
-        "time_s": 1.67,
+        "time_s": 1.93,
         "verified": 2
       },
       "milp": {
@@ -402,7 +402,7 @@
         "id": "20_squared",
         "number": 20,
         "sample_complexity": 15.0,
-        "time_s": 13.95,
+        "time_s": 13.38,
         "verified": 1
       }
     },
@@ -413,7 +413,7 @@
         "id": "21_sin",
         "number": 21,
         "sample_complexity": 12.6,
-        "time_s": 1.55,
+        "time_s": 1.75,
         "verified": 1
       },
       "milp": {
@@ -421,7 +421,7 @@
         "id": "21_sin",
         "number": 21,
         "sample_complexity": 15.0,
-        "time_s": 1.41,
+        "time_s": 0.52,
         "verified": 1
       }
     },
@@ -432,7 +432,7 @@
         "id": "22_sinh",
         "number": 22,
         "sample_complexity": 15.0,
-        "time_s": 1.56,
+        "time_s": 1.9,
         "verified": 1
       },
       "milp": {
@@ -440,7 +440,7 @@
         "id": "22_sinh",
         "number": 22,
         "sample_complexity": 15.0,
-        "time_s": 0.81,
+        "time_s": 0.37,
         "verified": 1
       }
     },
@@ -451,7 +451,7 @@
         "id": "23_cube",
         "number": 23,
         "sample_complexity": 17.333333333333332,
-        "time_s": 2.43,
+        "time_s": 2.31,
         "verified": 1
       },
       "milp": {
@@ -459,7 +459,7 @@
         "id": "23_cube",
         "number": 23,
         "sample_complexity": 20.0,
-        "time_s": 6.17,
+        "time_s": 2.15,
         "verified": 4
       }
     },
@@ -470,7 +470,7 @@
         "id": "24_log",
         "number": 24,
         "sample_complexity": 10.0,
-        "time_s": 0.41,
+        "time_s": 0.39,
         "verified": 1
       },
       "milp": {
@@ -478,7 +478,7 @@
         "id": "24_log",
         "number": 24,
         "sample_complexity": 10.0,
-        "time_s": 0.28,
+        "time_s": 0.1,
         "verified": 1
       }
     },
@@ -489,7 +489,7 @@
         "id": "25_sec",
         "number": 25,
         "sample_complexity": 50.0,
-        "time_s": 5.74,
+        "time_s": 5.72,
         "verified": 1
       },
       "milp": {
@@ -497,7 +497,7 @@
         "id": "25_sec",
         "number": 25,
         "sample_complexity": 50.0,
-        "time_s": 2.12,
+        "time_s": 1.29,
         "verified": 1
       }
     },
@@ -508,7 +508,7 @@
         "id": "26_csc",
         "number": 26,
         "sample_complexity": 64.53333333333333,
-        "time_s": 44.56,
+        "time_s": 45.09,
         "verified": 2
       },
       "milp": {
@@ -516,8 +516,8 @@
         "id": "26_csc",
         "number": 26,
         "sample_complexity": 103.0,
-        "time_s": 19.0,
-        "verified": 0
+        "time_s": 17.57,
+        "verified": 1
       }
     },
     {
@@ -527,7 +527,7 @@
         "id": "27_sinc",
         "number": 27,
         "sample_complexity": 42.0,
-        "time_s": 19.35,
+        "time_s": 19.63,
         "verified": 1
       },
       "milp": {
@@ -535,7 +535,7 @@
         "id": "27_sinc",
         "number": 27,
         "sample_complexity": null,
-        "time_s": 48.84,
+        "time_s": 40.38,
         "verified": 0
       }
     },
@@ -546,7 +546,7 @@
         "id": "28_sinc_composite",
         "number": 28,
         "sample_complexity": 15.0,
-        "time_s": 1.12,
+        "time_s": 1.15,
         "verified": 1
       },
       "milp": {
@@ -554,7 +554,7 @@
         "id": "28_sinc_composite",
         "number": 28,
         "sample_complexity": 15.0,
-        "time_s": 0.93,
+        "time_s": 0.4,
         "verified": 1
       }
     },
@@ -565,7 +565,7 @@
         "id": "29_mod",
         "number": 29,
         "sample_complexity": 10.0,
-        "time_s": 0.34,
+        "time_s": 0.38,
         "verified": 0
       },
       "milp": {
@@ -573,7 +573,7 @@
         "id": "29_mod",
         "number": 29,
         "sample_complexity": 10.0,
-        "time_s": 0.11,
+        "time_s": 0.09,
         "verified": 0
       }
     },
@@ -584,7 +584,7 @@
         "id": "30_mod_mult",
         "number": 30,
         "sample_complexity": 10.0,
-        "time_s": 0.45,
+        "time_s": 0.49,
         "verified": 0
       },
       "milp": {
@@ -592,7 +592,7 @@
         "id": "30_mod_mult",
         "number": 30,
         "sample_complexity": 10.0,
-        "time_s": 0.26,
+        "time_s": 0.2,
         "verified": 0
       }
     },
@@ -603,7 +603,7 @@
         "id": "31_int_mult",
         "number": 31,
         "sample_complexity": 15.0,
-        "time_s": 0.37,
+        "time_s": 0.39,
         "verified": 1
       },
       "milp": {
@@ -611,7 +611,7 @@
         "id": "31_int_mult",
         "number": 31,
         "sample_complexity": 15.0,
-        "time_s": 0.15,
+        "time_s": 0.26,
         "verified": 1
       }
     },
@@ -622,7 +622,7 @@
         "id": "32_tanh",
         "number": 32,
         "sample_complexity": 273.2142857142857,
-        "time_s": 13.87,
+        "time_s": 14.37,
         "verified": 0
       },
       "milp": {
@@ -630,7 +630,7 @@
         "id": "32_tanh",
         "number": 32,
         "sample_complexity": 30.0,
-        "time_s": 34.7,
+        "time_s": 32.89,
         "verified": 1
       }
     },
@@ -641,7 +641,7 @@
         "id": "33_sigmoid",
         "number": 33,
         "sample_complexity": 25.076923076923077,
-        "time_s": 14.92,
+        "time_s": 15.05,
         "verified": 3
       },
       "milp": {
@@ -649,7 +649,7 @@
         "id": "33_sigmoid",
         "number": 33,
         "sample_complexity": null,
-        "time_s": 46.96,
+        "time_s": 41.63,
         "verified": 0
       }
     },
@@ -660,7 +660,7 @@
         "id": "34_softmax2_1",
         "number": 34,
         "sample_complexity": 15.0,
-        "time_s": 1.85,
+        "time_s": 1.83,
         "verified": 1
       },
       "milp": {
@@ -668,7 +668,7 @@
         "id": "34_softmax2_1",
         "number": 34,
         "sample_complexity": 15.0,
-        "time_s": 4.52,
+        "time_s": 2.25,
         "verified": 1
       }
     },
@@ -679,7 +679,7 @@
         "id": "35_softmax2_2",
         "number": 35,
         "sample_complexity": 15.0,
-        "time_s": 1.39,
+        "time_s": 1.42,
         "verified": 1
       },
       "milp": {
@@ -687,7 +687,7 @@
         "id": "35_softmax2_2",
         "number": 35,
         "sample_complexity": 15.0,
-        "time_s": 4.72,
+        "time_s": 2.28,
         "verified": 1
       }
     },
@@ -698,7 +698,7 @@
         "id": "36_logistic",
         "number": 36,
         "sample_complexity": 50.0,
-        "time_s": 2.58,
+        "time_s": 2.6,
         "verified": 1
       },
       "milp": {
@@ -706,7 +706,7 @@
         "id": "36_logistic",
         "number": 36,
         "sample_complexity": null,
-        "time_s": 3.72,
+        "time_s": 2.22,
         "verified": 0
       }
     },
@@ -716,8 +716,8 @@
         "faulty": 0,
         "id": "37_logistic_scaled",
         "number": 37,
-        "sample_complexity": 25.82608695652174,
-        "time_s": 12.11,
+        "sample_complexity": 25.2,
+        "time_s": 12.06,
         "verified": 3
       },
       "milp": {
@@ -725,7 +725,7 @@
         "id": "37_logistic_scaled",
         "number": 37,
         "sample_complexity": 30.0,
-        "time_s": 32.54,
+        "time_s": 29.24,
         "verified": 1
       }
     },
@@ -735,16 +735,16 @@
         "faulty": 0,
         "id": "38_square_loss",
         "number": 38,
-        "sample_complexity": 12.0,
-        "time_s": 2.53,
-        "verified": 1
+        "sample_complexity": null,
+        "time_s": 1.85,
+        "verified": 0
       },
       "milp": {
         "faulty": 0,
         "id": "38_square_loss",
         "number": 38,
         "sample_complexity": 15.0,
-        "time_s": 3.75,
+        "time_s": 1.71,
         "verified": 3
       }
     },
@@ -755,7 +755,7 @@
         "id": "39_savage_loss_library",
         "number": 39,
         "sample_complexity": 40.0,
-        "time_s": 8.01,
+        "time_s": 8.42,
         "verified": 1
       },
       "milp": {
@@ -763,7 +763,7 @@
         "id": "39_savage_loss_library",
         "number": 39,
         "sample_complexity": null,
-        "time_s": 31.48,
+        "time_s": 30.35,
         "verified": 0
       }
     },
@@ -773,8 +773,8 @@
         "faulty": 0,
         "id": "40_savage_loss_basis",
         "number": 40,
-        "sample_complexity": 41.6,
-        "time_s": 11.46,
+        "sample_complexity": 40.0,
+        "time_s": 12.38,
         "verified": 1
       },
       "milp": {
@@ -782,7 +782,7 @@
         "id": "40_savage_loss_basis",
         "number": 40,
         "sample_complexity": null,
-        "time_s": 22.09,
+        "time_s": 17.48,
         "verified": 0
       }
     },
@@ -792,8 +792,8 @@
         "faulty": 0,
         "id": "41_arcsin",
         "number": 41,
-        "sample_complexity": 80.08695652173913,
-        "time_s": 18.53,
+        "sample_complexity": 78.11320754716981,
+        "time_s": 24.11,
         "verified": 0
       },
       "milp": {
@@ -801,7 +801,7 @@
         "id": "41_arcsin",
         "number": 41,
         "sample_complexity": null,
-        "time_s": 48.33,
+        "time_s": 42.14,
         "verified": 0
       }
     },
@@ -811,8 +811,8 @@
         "faulty": 0,
         "id": "42_arccos",
         "number": 42,
-        "sample_complexity": 84.61538461538461,
-        "time_s": 32.1,
+        "sample_complexity": 80.0,
+        "time_s": 31.12,
         "verified": 0
       },
       "milp": {
@@ -820,7 +820,7 @@
         "id": "42_arccos",
         "number": 42,
         "sample_complexity": null,
-        "time_s": 47.63,
+        "time_s": 41.59,
         "verified": 0
       }
     },
@@ -830,8 +830,8 @@
         "faulty": 0,
         "id": "43_arctan",
         "number": 43,
-        "sample_complexity": null,
-        "time_s": 22.21,
+        "sample_complexity": 80.0,
+        "time_s": 18.02,
         "verified": 0
       },
       "milp": {
@@ -839,7 +839,7 @@
         "id": "43_arctan",
         "number": 43,
         "sample_complexity": null,
-        "time_s": 32.28,
+        "time_s": 26.51,
         "verified": 0
       }
     },
@@ -850,7 +850,7 @@
         "id": "44_arcsinh",
         "number": 44,
         "sample_complexity": 80.0,
-        "time_s": 24.4,
+        "time_s": 22.33,
         "verified": 0
       },
       "milp": {
@@ -858,7 +858,7 @@
         "id": "44_arcsinh",
         "number": 44,
         "sample_complexity": null,
-        "time_s": 30.52,
+        "time_s": 18.17,
         "verified": 0
       }
     },
@@ -868,8 +868,8 @@
         "faulty": 0,
         "id": "45_arccosh",
         "number": 45,
-        "sample_complexity": 100.0,
-        "time_s": 33.45,
+        "sample_complexity": 80.66666666666667,
+        "time_s": 29.62,
         "verified": 0
       },
       "milp": {
@@ -877,7 +877,7 @@
         "id": "45_arccosh",
         "number": 45,
         "sample_complexity": null,
-        "time_s": 56.28,
+        "time_s": 49.85,
         "verified": 0
       }
     },
@@ -888,7 +888,7 @@
         "id": "46_arctanh",
         "number": 46,
         "sample_complexity": 80.0,
-        "time_s": 19.36,
+        "time_s": 18.73,
         "verified": 0
       },
       "milp": {
@@ -896,7 +896,7 @@
         "id": "46_arctanh",
         "number": 46,
         "sample_complexity": null,
-        "time_s": 44.29,
+        "time_s": 37.46,
         "verified": 0
       }
     },
@@ -907,7 +907,7 @@
         "id": "47_relu",
         "number": 47,
         "sample_complexity": 100.0,
-        "time_s": 20.94,
+        "time_s": 16.25,
         "verified": 0
       },
       "milp": {
@@ -915,7 +915,7 @@
         "id": "47_relu",
         "number": 47,
         "sample_complexity": 51.0,
-        "time_s": 9.0,
+        "time_s": 3.24,
         "verified": 0
       }
     },
@@ -926,7 +926,7 @@
         "id": "48_leaky_relu",
         "number": 48,
         "sample_complexity": null,
-        "time_s": 17.37,
+        "time_s": 17.02,
         "verified": 0
       },
       "milp": {
@@ -934,7 +934,7 @@
         "id": "48_leaky_relu",
         "number": 48,
         "sample_complexity": null,
-        "time_s": 8.07,
+        "time_s": 2.68,
         "verified": 0
       }
     },
@@ -945,7 +945,7 @@
         "id": "49_swish",
         "number": 49,
         "sample_complexity": null,
-        "time_s": 29.63,
+        "time_s": 27.9,
         "verified": 0
       },
       "milp": {
@@ -953,7 +953,7 @@
         "id": "49_swish",
         "number": 49,
         "sample_complexity": null,
-        "time_s": 7.54,
+        "time_s": 3.16,
         "verified": 0
       }
     },
@@ -964,7 +964,7 @@
         "id": "50_gelu",
         "number": 50,
         "sample_complexity": null,
-        "time_s": 26.2,
+        "time_s": 25.42,
         "verified": 0
       },
       "milp": {
@@ -972,7 +972,7 @@
         "id": "50_gelu",
         "number": 50,
         "sample_complexity": null,
-        "time_s": 9.28,
+        "time_s": 6.05,
         "verified": 0
       }
     },
@@ -983,7 +983,7 @@
         "id": "51_log1p",
         "number": 51,
         "sample_complexity": 80.0,
-        "time_s": 31.55,
+        "time_s": 25.26,
         "verified": 0
       },
       "milp": {
@@ -991,7 +991,7 @@
         "id": "51_log1p",
         "number": 51,
         "sample_complexity": null,
-        "time_s": 41.77,
+        "time_s": 39.9,
         "verified": 0
       }
     },
@@ -1002,7 +1002,7 @@
         "id": "52_logit",
         "number": 52,
         "sample_complexity": 80.0,
-        "time_s": 31.49,
+        "time_s": 27.46,
         "verified": 0
       },
       "milp": {
@@ -1010,7 +1010,7 @@
         "id": "52_logit",
         "number": 52,
         "sample_complexity": null,
-        "time_s": 35.57,
+        "time_s": 31.89,
         "verified": 0
       }
     },
@@ -1021,7 +1021,7 @@
         "id": "53_log2",
         "number": 53,
         "sample_complexity": 80.0,
-        "time_s": 27.95,
+        "time_s": 25.44,
         "verified": 0
       },
       "milp": {
@@ -1029,7 +1029,7 @@
         "id": "53_log2",
         "number": 53,
         "sample_complexity": null,
-        "time_s": 40.45,
+        "time_s": 36.6,
         "verified": 0
       }
     },
@@ -1039,8 +1039,8 @@
         "faulty": 0,
         "id": "54_sqrt",
         "number": 54,
-        "sample_complexity": 84.31372549019608,
-        "time_s": 14.78,
+        "sample_complexity": 82.58333333333333,
+        "time_s": 12.5,
         "verified": 3
       },
       "milp": {
@@ -1048,7 +1048,7 @@
         "id": "54_sqrt",
         "number": 54,
         "sample_complexity": 30.0,
-        "time_s": 46.54,
+        "time_s": 41.96,
         "verified": 4
       }
     },
@@ -1058,8 +1058,8 @@
         "faulty": 0,
         "id": "55_cbrt",
         "number": 55,
-        "sample_complexity": 86.15384615384616,
-        "time_s": 17.38,
+        "sample_complexity": 88.0,
+        "time_s": 15.48,
         "verified": 4
       },
       "milp": {
@@ -1067,7 +1067,7 @@
         "id": "55_cbrt",
         "number": 55,
         "sample_complexity": 51.0,
-        "time_s": 19.12,
+        "time_s": 14.31,
         "verified": 2
       }
     },
@@ -1078,7 +1078,7 @@
         "id": "56_x_to_x",
         "number": 56,
         "sample_complexity": null,
-        "time_s": 5.23,
+        "time_s": 4.51,
         "verified": 0
       },
       "milp": {
@@ -1086,7 +1086,7 @@
         "id": "56_x_to_x",
         "number": 56,
         "sample_complexity": null,
-        "time_s": 1.8,
+        "time_s": 1.53,
         "verified": 0
       }
     },
@@ -1097,7 +1097,7 @@
         "id": "57_floor",
         "number": 57,
         "sample_complexity": 84.22535211267606,
-        "time_s": 19.17,
+        "time_s": 17.29,
         "verified": 0
       },
       "milp": {
@@ -1105,7 +1105,7 @@
         "id": "57_floor",
         "number": 57,
         "sample_complexity": 46.578947368421055,
-        "time_s": 11.22,
+        "time_s": 6.21,
         "verified": 0
       }
     },
@@ -1116,7 +1116,7 @@
         "id": "58_ceil",
         "number": 58,
         "sample_complexity": 84.22535211267606,
-        "time_s": 19.34,
+        "time_s": 17.63,
         "verified": 0
       },
       "milp": {
@@ -1124,7 +1124,7 @@
         "id": "58_ceil",
         "number": 58,
         "sample_complexity": 46.578947368421055,
-        "time_s": 12.52,
+        "time_s": 6.53,
         "verified": 0
       }
     },
@@ -1134,8 +1134,8 @@
         "faulty": 0,
         "id": "59_frac",
         "number": 59,
-        "sample_complexity": 84.44444444444444,
-        "time_s": 19.71,
+        "sample_complexity": 84.10958904109589,
+        "time_s": 17.46,
         "verified": 0
       },
       "milp": {
@@ -1143,7 +1143,7 @@
         "id": "59_frac",
         "number": 59,
         "sample_complexity": 30.0,
-        "time_s": 44.78,
+        "time_s": 40.68,
         "verified": 0
       }
     },
@@ -1154,7 +1154,7 @@
         "id": "60_erf",
         "number": 60,
         "sample_complexity": 80.0,
-        "time_s": 19.66,
+        "time_s": 16.01,
         "verified": 0
       },
       "milp": {
@@ -1162,7 +1162,7 @@
         "id": "60_erf",
         "number": 60,
         "sample_complexity": null,
-        "time_s": 35.83,
+        "time_s": 32.43,
         "verified": 0
       }
     },
@@ -1173,7 +1173,7 @@
         "id": "61_gamma",
         "number": 61,
         "sample_complexity": null,
-        "time_s": 8.13,
+        "time_s": 4.91,
         "verified": 0
       },
       "milp": {
@@ -1181,7 +1181,7 @@
         "id": "61_gamma",
         "number": 61,
         "sample_complexity": null,
-        "time_s": 2.73,
+        "time_s": 2.01,
         "verified": 0
       }
     },
@@ -1192,7 +1192,7 @@
         "id": "62_exp_sin",
         "number": 62,
         "sample_complexity": null,
-        "time_s": 27.75,
+        "time_s": 20.11,
         "verified": 0
       },
       "milp": {
@@ -1200,7 +1200,7 @@
         "id": "62_exp_sin",
         "number": 62,
         "sample_complexity": null,
-        "time_s": 5.85,
+        "time_s": 3.65,
         "verified": 0
       }
     },
@@ -1211,7 +1211,7 @@
         "id": "63_sin_exp",
         "number": 63,
         "sample_complexity": null,
-        "time_s": 14.84,
+        "time_s": 13.43,
         "verified": 0
       },
       "milp": {
@@ -1219,7 +1219,7 @@
         "id": "63_sin_exp",
         "number": 63,
         "sample_complexity": null,
-        "time_s": 19.81,
+        "time_s": 14.69,
         "verified": 0
       }
     },
@@ -1230,7 +1230,7 @@
         "id": "64_log_cos",
         "number": 64,
         "sample_complexity": null,
-        "time_s": 18.04,
+        "time_s": 13.64,
         "verified": 0
       },
       "milp": {
@@ -1238,7 +1238,7 @@
         "id": "64_log_cos",
         "number": 64,
         "sample_complexity": null,
-        "time_s": 7.37,
+        "time_s": 4.09,
         "verified": 0
       }
     },
@@ -1248,8 +1248,8 @@
         "faulty": 0,
         "id": "65_sqrt_one_plus_x2",
         "number": 65,
-        "sample_complexity": 67.7948717948718,
-        "time_s": 19.04,
+        "sample_complexity": 63.63636363636363,
+        "time_s": 14.47,
         "verified": 5
       },
       "milp": {
@@ -1257,7 +1257,7 @@
         "id": "65_sqrt_one_plus_x2",
         "number": 65,
         "sample_complexity": 30.0,
-        "time_s": 44.24,
+        "time_s": 41.53,
         "verified": 1
       }
     },
@@ -1268,7 +1268,7 @@
         "id": "66_abs",
         "number": 66,
         "sample_complexity": 92.0,
-        "time_s": 12.27,
+        "time_s": 9.01,
         "verified": 0
       },
       "milp": {
@@ -1276,7 +1276,7 @@
         "id": "66_abs",
         "number": 66,
         "sample_complexity": 30.0,
-        "time_s": 40.29,
+        "time_s": 36.11,
         "verified": 0
       }
     },
@@ -1287,7 +1287,7 @@
         "id": "67_sign",
         "number": 67,
         "sample_complexity": 100.0,
-        "time_s": 11.65,
+        "time_s": 8.42,
         "verified": 0
       },
       "milp": {
@@ -1295,7 +1295,7 @@
         "id": "67_sign",
         "number": 67,
         "sample_complexity": 47.325,
-        "time_s": 38.3,
+        "time_s": 36.96,
         "verified": 0
       }
     },
@@ -1306,7 +1306,7 @@
         "id": "68_gudermannian",
         "number": 68,
         "sample_complexity": 80.0,
-        "time_s": 23.95,
+        "time_s": 16.8,
         "verified": 0
       },
       "milp": {
@@ -1314,7 +1314,7 @@
         "id": "68_gudermannian",
         "number": 68,
         "sample_complexity": null,
-        "time_s": 33.99,
+        "time_s": 31.05,
         "verified": 0
       }
     },
@@ -1325,7 +1325,7 @@
         "id": "69_2_to_x",
         "number": 69,
         "sample_complexity": 100.0,
-        "time_s": 10.81,
+        "time_s": 8.48,
         "verified": 3
       },
       "milp": {
@@ -1333,7 +1333,7 @@
         "id": "69_2_to_x",
         "number": 69,
         "sample_complexity": 46.6551724137931,
-        "time_s": 10.76,
+        "time_s": 5.21,
         "verified": 2
       }
     },
@@ -1344,7 +1344,7 @@
         "id": "70_10_to_x",
         "number": 70,
         "sample_complexity": 100.0,
-        "time_s": 6.0,
+        "time_s": 3.27,
         "verified": 3
       },
       "milp": {
@@ -1352,7 +1352,7 @@
         "id": "70_10_to_x",
         "number": 70,
         "sample_complexity": 35.25,
-        "time_s": 2.63,
+        "time_s": 2.45,
         "verified": 2
       }
     },
@@ -1362,8 +1362,8 @@
         "faulty": 0,
         "id": "71_pade_1_1",
         "number": 71,
-        "sample_complexity": 79.8,
-        "time_s": 14.64,
+        "sample_complexity": 83.52941176470588,
+        "time_s": 10.41,
         "verified": 1
       },
       "milp": {
@@ -1371,7 +1371,7 @@
         "id": "71_pade_1_1",
         "number": 71,
         "sample_complexity": 47.5,
-        "time_s": 11.27,
+        "time_s": 5.53,
         "verified": 3
       }
     },
@@ -1382,7 +1382,7 @@
         "id": "72_pade_2_2",
         "number": 72,
         "sample_complexity": null,
-        "time_s": 24.4,
+        "time_s": 20.17,
         "verified": 0
       },
       "milp": {
@@ -1390,7 +1390,7 @@
         "id": "72_pade_2_2",
         "number": 72,
         "sample_complexity": null,
-        "time_s": 9.91,
+        "time_s": 3.42,
         "verified": 0
       }
     },
@@ -1400,8 +1400,8 @@
         "faulty": 0,
         "id": "73_continued_fraction_golden",
         "number": 73,
-        "sample_complexity": 90.0,
-        "time_s": 26.79,
+        "sample_complexity": 90.9090909090909,
+        "time_s": 22.17,
         "verified": 1
       },
       "milp": {
@@ -1409,7 +1409,7 @@
         "id": "73_continued_fraction_golden",
         "number": 73,
         "sample_complexity": null,
-        "time_s": 45.97,
+        "time_s": 39.7,
         "verified": 0
       }
     },
@@ -1420,7 +1420,7 @@
         "id": "74_continued_fraction_tan",
         "number": 74,
         "sample_complexity": 80.0,
-        "time_s": 7.97,
+        "time_s": 4.46,
         "verified": 0
       },
       "milp": {
@@ -1428,7 +1428,7 @@
         "id": "74_continued_fraction_tan",
         "number": 74,
         "sample_complexity": null,
-        "time_s": 10.96,
+        "time_s": 4.03,
         "verified": 0
       }
     },
@@ -1438,8 +1438,8 @@
         "faulty": 0,
         "id": "75_mobius_simple",
         "number": 75,
-        "sample_complexity": 85.45454545454545,
-        "time_s": 15.19,
+        "sample_complexity": 86.08695652173913,
+        "time_s": 9.9,
         "verified": 1
       },
       "milp": {
@@ -1447,7 +1447,7 @@
         "id": "75_mobius_simple",
         "number": 75,
         "sample_complexity": null,
-        "time_s": 5.9,
+        "time_s": 2.51,
         "verified": 0
       }
     },
@@ -1457,16 +1457,16 @@
         "faulty": 0,
         "id": "76_mobius_inversion",
         "number": 76,
-        "sample_complexity": 86.75,
-        "time_s": 9.17,
-        "verified": 12
+        "sample_complexity": 100.0,
+        "time_s": 4.37,
+        "verified": 16
       },
       "milp": {
         "faulty": 0,
         "id": "76_mobius_inversion",
         "number": 76,
         "sample_complexity": 30.0,
-        "time_s": 24.99,
+        "time_s": 22.22,
         "verified": 3
       }
     },
@@ -1476,16 +1476,16 @@
         "faulty": 0,
         "id": "77_mobius_cayley",
         "number": 77,
-        "sample_complexity": 81.84615384615384,
-        "time_s": 17.21,
-        "verified": 3
+        "sample_complexity": 66.5,
+        "time_s": 8.22,
+        "verified": 1
       },
       "milp": {
         "faulty": 0,
         "id": "77_mobius_cayley",
         "number": 77,
-        "sample_complexity": 46.333333333333336,
-        "time_s": 21.94,
+        "sample_complexity": 46.8,
+        "time_s": 14.67,
         "verified": 3
       }
     },
@@ -1496,7 +1496,7 @@
         "id": "78_exp_x2",
         "number": 78,
         "sample_complexity": null,
-        "time_s": 8.76,
+        "time_s": 6.0,
         "verified": 0
       },
       "milp": {
@@ -1504,7 +1504,7 @@
         "id": "78_exp_x2",
         "number": 78,
         "sample_complexity": null,
-        "time_s": 2.64,
+        "time_s": 1.59,
         "verified": 0
       }
     },
@@ -1515,7 +1515,7 @@
         "id": "79_exp_cos",
         "number": 79,
         "sample_complexity": null,
-        "time_s": 29.02,
+        "time_s": 20.29,
         "verified": 0
       },
       "milp": {
@@ -1523,7 +1523,7 @@
         "id": "79_exp_cos",
         "number": 79,
         "sample_complexity": null,
-        "time_s": 13.49,
+        "time_s": 6.02,
         "verified": 0
       }
     },
@@ -1534,7 +1534,7 @@
         "id": "80_fourth",
         "number": 80,
         "sample_complexity": 83.05882352941177,
-        "time_s": 10.47,
+        "time_s": 6.09,
         "verified": 0
       },
       "milp": {
@@ -1542,7 +1542,7 @@
         "id": "80_fourth",
         "number": 80,
         "sample_complexity": null,
-        "time_s": 1.15,
+        "time_s": 1.01,
         "verified": 0
       }
     }
@@ -1550,6 +1550,6 @@
   "schema_version": 1,
   "solver": "gurobi",
   "source": "immutable orx run log",
-  "source_log_sha256": "38bcc415ad3a2aa06bfbd99b7a42fa4b9886560a80195d311d3159def1b8dbc3",
+  "source_log_sha256": "039537fd24d1d833319b11e7a2818333e63a49271cbf46eed06a4b2b817df879",
   "verdict": "PASS"
 }

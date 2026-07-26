@@ -19,12 +19,12 @@ Headline numbers:
   paper's binary proof witness is invalid at `epsilon = 1/2`, while a ternary
   witness repairs the proof without weakening the stated theorem.
 - Vanilla Bitween: paper `43/80`; frozen baseline `43/80`, 91 verified
-  identities, zero faulty; seeded cumulative runs `40–41/80`, 88 identities.
+  identities, zero faulty; final cumulative run `42/80`, 91 identities.
 - Agentic Bitween: paper `64/80`; preserved full-scale run `73/80`, 320
   verified identities, zero faulty under the reproduction's broader coverage
   metric.
-- Backend comparison: fresh full-80 LR/Gurobi coverage `40/37`, verified
-  identities `88/69`, and mean runtime `12.008/17.791 s`. The legacy v1 table
+- Backend comparison: final full-80 LR/Gurobi coverage `42/38`, verified
+  identities `91/70`, and mean runtime `10.444/14.450 s`. The legacy v1 table
   sums to LR/MILP sample use `607/1180` and runtime `227.10/308.64 s`.
 
 Every scientific job used Hugging Face `cpu-upgrade` (8 vCPUs, 32 GB, no
@@ -45,6 +45,7 @@ opens with embedded evidence and does not rerun expensive experiments.
 | [`orx/backend-claim-source-contract-and-harness`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/backend-claim-source-contract-and-harness) | Hash and reconcile v1/v5 source statements before testing Claim 5 | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | v1 complete table and v5 contracts pass; source mismatch exposed | HF `cpu-upgrade`, 8 vCPU, 32 GB, 22m28s |
 | [`orx/fresh-full-80-gurobi-milp-comparison`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/fresh-full-80-gurobi-milp-comparison) | Paper-relevant paired LR versus eager Gurobi MILP | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | LR/MILP coverage 40/37, identities 88/69, mean runtime 12.008/17.791 s; swap control rejected | HF `cpu-upgrade`, 8 vCPU, 32 GB, 41m34s |
 | [`orx/fresh-full-80-pulp-milp-robustness`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/fresh-full-80-pulp-milp-robustness) | Open-source solver robustness route | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | LR/MILP coverage 41/39, identities 88/66, mean runtime 11.939/17.181 s; swap control rejected | HF `cpu-upgrade`, 8 vCPU, 32 GB, 40m30s |
+| [`orx/integrated-five-claim-release-candidate`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/integrated-five-claim-release-candidate) | Final cumulative five-claim regression and paper-relevant Gurobi rerun | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | All claim gates pass; LR/MILP 42/38 coverage, 91/70 identities, 10.444/14.450 s mean runtime | HF `cpu-upgrade`, 8 vCPU, 32 GB, 34m54s |
 
 Local notebook use:
 

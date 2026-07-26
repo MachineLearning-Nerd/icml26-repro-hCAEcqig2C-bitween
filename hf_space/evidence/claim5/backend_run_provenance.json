@@ -14,7 +14,7 @@
   },
   "runs": [
     {
-      "role": "paper-relevant",
+      "role": "initial paper-relevant",
       "solver": "gurobi",
       "experiment_id": "26783a1b-9e72-499c-8237-dd7aaf6eb91f",
       "run_id": "6639f37f-1dad-48ed-9eab-e37f80ce096d",
@@ -24,6 +24,19 @@
       "duration_seconds": 2494,
       "entrypoint_runtime_seconds": 2468.650789,
       "approximate_cost_usd": 0.020783,
+      "verdict": "VERIFIED"
+    },
+    {
+      "role": "final cumulative paper-relevant integration",
+      "solver": "gurobi",
+      "experiment_id": "7372adf1-b29f-4545-a14f-574a1f6073cd",
+      "run_id": "1641598f-0324-42b5-8d1f-6c7399526fa8",
+      "git_sha": "519ae8d1bc86054e48797dc2f02076844a4cea7f",
+      "estimated_cpu_cores": 8,
+      "estimated_runtime_minutes": 50,
+      "duration_seconds": 2094,
+      "entrypoint_runtime_seconds": 2066.746638,
+      "approximate_cost_usd": 0.01745,
       "verdict": "VERIFIED"
     },
     {

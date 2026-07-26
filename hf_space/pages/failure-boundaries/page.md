@@ -11,9 +11,9 @@ cumulative LR prefixes produced 86 and 83 identities, below the precommitted
 Inspection showed NumPy was seeded while Python `random` was not. The wrapper
 was fixed to seed both; the gate was not relaxed.
 
-The successful Gurobi and PuLP runs each produced 88 LR identities. They
-covered 40 and 41 functions, respectively, so a small residual numerical or
-scheduling nondeterminism remains and is disclosed.
+Successful seeded LR prefixes produced 88–91 identities and covered 40–42
+functions, so a small residual numerical or scheduling nondeterminism remains
+and is disclosed.
 
 Download the [failure record](../../evidence/claim5/failure_boundary.md) and
 [run provenance](../../evidence/claim5/backend_run_provenance.json).

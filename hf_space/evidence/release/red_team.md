@@ -70,3 +70,14 @@ Pass 2 repeats the traversal after these fixes. Its exact file-open list,
 missing-link result, protected-subset result, secret scan, and text upload
 allowlist are stored in the release audit JSON alongside the repository
 candidate. No missing visibility cell remains after the second pass.
+
+## Pass 3 after the final cumulative run
+
+The final HF `cpu-upgrade` run completed at winning scientific SHA
+`519ae8d1bc86054e48797dc2f02076844a4cea7f`. The publication-only candidate
+was updated to its exact Gurobi aggregates, all 80 reconstructed paired rows,
+runtime, CPU/cost record, and cumulative verdict. The blind traversal was then
+repeated from a newly downloaded candidate directory. Publication is allowed
+only if this final audit again reports no missing link or secret, historical
+pages byte-identical, the judged file set a subset, and every current page
+reachable from the canonical scorecard.

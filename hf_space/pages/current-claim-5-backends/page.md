@@ -54,14 +54,14 @@ command for LR and eager Gurobi MILP:
 | Metric | LR | Gurobi MILP |
 |---|---:|---:|
 | Functions | 80 | 80 |
-| Functions with a verified identity | 40 | 37 |
-| Verified identities | 88 | 69 |
+| Functions with a verified identity | 42 | 38 |
+| Verified identities | 91 | 70 |
 | Faulty identities | 0 | 0 |
-| Mean runtime per function | 12.008375 s | 17.790875 s |
-| Total runtime | 960.67 s | 1,423.27 s |
+| Mean runtime per function | 10.44425 s | 14.450125 s |
+| Total runtime | 835.54 s | 1,156.01 s |
 
-Paired directions: LR has more identities on 18 functions, MILP on 12, equal
-on 50; LR is faster on 50 and MILP on 30. The exact current contract—more LR
+Paired directions: LR has more identities on 18 functions, MILP on 11, equal
+on 51; LR is faster on 38 and MILP on 42. The exact current contract—more LR
 coverage and identities, lower average time, zero faulty on both—passes.
 A label-swap mutation is rejected.
 
@@ -93,8 +93,8 @@ same independent aggregate cross-check.
 
 The current v5 harness prints a derived average `Sample Complexity`; it is not
 the v1 `used/budget` table field and is observed on different numbers of
-successful functions. Its raw Gurobi totals are LR `3347.276` over 61
-functions and MILP `1216.221` over 46. This fresh metric numerically favors
+successful functions. Its raw final Gurobi totals are LR `3425.422` over 64
+functions and MILP `1216.688` over 46. This fresh metric numerically favors
 MILP and is **not** presented as a reproduction of the legacy sample-count
 claim.
 
