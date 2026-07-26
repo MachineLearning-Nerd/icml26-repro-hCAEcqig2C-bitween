@@ -1,0 +1,18 @@
+{
+  "run_id": "63efb31b-a80c-4aff-90e0-52a24e81f061",
+  "git_sha": "c7fd7c901d0d362ffe48876f380fd9567d00dcbc",
+  "pac_to_rsr_case_split_grid_checks": 2888,
+  "rank_nullity_certificate": [
+    {"n": 1, "m": 0, "transcripts": 1, "minimum_nullity": 1},
+    {"n": 2, "m": 0, "transcripts": 1, "minimum_nullity": 2},
+    {"n": 2, "m": 1, "transcripts": 9, "minimum_nullity": 1},
+    {"n": 3, "m": 0, "transcripts": 1, "minimum_nullity": 3},
+    {"n": 3, "m": 1, "transcripts": 27, "minimum_nullity": 2},
+    {"n": 3, "m": 2, "transcripts": 729, "minimum_nullity": 1}
+  ],
+  "field": "F_3",
+  "best_identification_probability_with_m_lt_n": 0.3333333333333333,
+  "required_success_for_delta_lt_half": "greater than 0.5",
+  "stage_runtime_seconds": 0.097849,
+  "verdict": "VERIFIED"
+}

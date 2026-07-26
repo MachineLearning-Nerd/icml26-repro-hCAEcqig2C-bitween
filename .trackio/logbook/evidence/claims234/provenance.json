@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "fixed_run_command": "uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py",
+  "backend": "hf",
+  "flavor": "cpu-upgrade",
+  "allocated_vcpus": 8,
+  "allocated_memory_gb": 32,
+  "seed": 42,
+  "numeric_falsifier_seed": 0,
+  "frozen_baseline": {
+    "run_id": "c8d858bf-03ac-47a8-96c2-128df8251af5",
+    "git_sha": "e6454d25645fa64af3080f7a61f270b431b2ee3c",
+    "duration_seconds": 1107,
+    "entrypoint_runtime_seconds": 1082.26694,
+    "estimated_cpu_cores": 8,
+    "estimated_runtime_minutes": 25,
+    "approximate_cost_usd": 0.009225
+  }
+}

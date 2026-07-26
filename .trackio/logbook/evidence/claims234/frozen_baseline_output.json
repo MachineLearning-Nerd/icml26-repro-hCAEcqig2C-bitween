@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "run_id": "c8d858bf-03ac-47a8-96c2-128df8251af5",
+  "git_sha": "e6454d25645fa64af3080f7a61f270b431b2ee3c",
+  "claim2": {
+    "function_count": 80,
+    "id_span": [1, 80],
+    "verdict": "VERIFIED"
+  },
+  "claim3": {
+    "coverage": 43,
+    "verified_identities": 91,
+    "faulty": 0,
+    "sigmoid_verified_identities": 3,
+    "sigmoid_max_abs_residuals": [
+      5.551e-16,
+      2.498e-16,
+      5.551e-16
+    ],
+    "numeric_samples_per_sigmoid_identity": 20000,
+    "verdict": "VERIFIED"
+  },
+  "claim4": {
+    "function_count": 80,
+    "coverage": 73,
+    "verified_identities": 320,
+    "faulty": 0,
+    "verdict": "VERIFIED"
+  },
+  "false_positive_controls_rejected": 3,
+  "verdict": "PASS"
+}

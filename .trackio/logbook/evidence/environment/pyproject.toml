@@ -1,0 +1,26 @@
+[project]
+name = "learning-randomized-reductions-reproduction"
+version = "0.1.0"
+description = "Locked environment for the Learning Randomized Reductions reproduction campaign"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "func-timeout>=4.3.5,<5",
+  "gurobipy>=12.0,<13",
+  "joblib>=1.4,<2",
+  "marimo>=0.15,<1",
+  "matplotlib>=3.10,<4",
+  "numpy>=2.3,<3",
+  "pandas>=2.3,<3",
+  "pulp>=3.3,<4",
+  "pycparser>=2.23,<3",
+  "pytest>=8,<9",
+  "python-dotenv>=1,<2",
+  "scikit-learn>=1.8,<2",
+  "scipy>=1.16,<2",
+  "sympy>=1.14,<2",
+  "tqdm>=4.67,<5",
+  "z3-solver>=4.15,<5",
+]
+
+[tool.uv]
+package = false

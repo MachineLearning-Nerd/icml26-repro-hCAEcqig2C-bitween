@@ -1,5 +1,5 @@
 ---
-title: "Repro - Learning Randomized Reductions (Bitween)"
+title: "Learning Randomized Reductions — five-claim reproduction"
 emoji: 🎯
 colorFrom: yellow
 colorTo: red
@@ -13,6 +13,15 @@ tags:
  - paper-hCAEcqig2C
 ---
 
-# Repro - Learning Randomized Reductions (Bitween)
+# Learning Randomized Reductions — five-claim reproduction
 
-An open experiment logbook, published with [Trackio](https://github.com/gradio-app/trackio).
+The canonical evaluator entrypoint is the **Current five-claim scorecard** in
+this logbook. It places current verification before historical material and
+links every contract, executable verifier, raw result, checker, control,
+provenance record, and limitation.
+
+The exact judged revision
+`ae46d4e51ffd7d29e2d5d71ae39df4e2e9fce037` remains in this Space's history.
+Its pages and evidence remain reachable in the Historical evidence navigation
+group. No score increase is claimed until the live evaluator judges this
+revision.

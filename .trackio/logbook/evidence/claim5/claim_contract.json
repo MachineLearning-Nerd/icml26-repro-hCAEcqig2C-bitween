@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "reproduction_claim": 5,
+  "source_versions": {
+    "v1": {
+      "retrieved_utc_date": "2026-07-26",
+      "source_url": "https://arxiv.org/e-print/2412.18134v1",
+      "source_sha256": "c9483e7747bead779af4d5691438feac34e9c38af77cb4fbe4928c90f2f5890c",
+      "lr_milp_anchor": "sections/evaluation.tex, Table 1 and Figure 3",
+      "lr_milp_domain": "40-function RSR-Bench",
+      "nla_anchor": "sections/evaluation.tex, Table 2",
+      "nla_backends": [
+        "Bitween",
+        "DIG",
+        "SymInfer"
+      ]
+    },
+    "v5": {
+      "retrieved_utc_date": "2026-07-26",
+      "source_url": "https://arxiv.org/e-print/2412.18134",
+      "source_sha256": "556b673c447303e3d2ce1d3c4e565edb0de7dad954bd5174941841bfe9ca961f",
+      "pdf_sha256": "93cab4aa8cec06434b704e639bab87dd15ea95ac46a335961138a94fc1bae2b8",
+      "lr_milp_anchor": "abstract, sections/evaluation.tex, table_aggregate_results.tex",
+      "lr_milp_domain": "80-function RSR-Bench",
+      "nla_status": "not present"
+    }
+  },
+  "judge_text": "On nonlinear invariant benchmarks, the regression backend outperforms the MILP backend in sample count and runtime (Table 2).",
+  "source_attribution_result": "The judge text conflates v1 Table 1/Figure 3 (LR versus MILP on RSR-Bench) with v1 Table 2 (Bitween versus DIG and SymInfer on nonlinear invariants).",
+  "contracts": {
+    "route_1_source": "Identify the exact versioned domains, backends, metrics, and source-table anchors without treating the judge paraphrase as paper ground truth.",
+    "route_2_complete_table": "Recompute every v1 Table 1 LR/MILP row: LR uses no more samples on every comparable row and has lower aggregate sample use and aggregate runtime; disclose any disagreement between prose totals and complete-table totals.",
+    "route_3_fresh_current": "On paired fresh runs of all 80 current RSR-Bench functions, the multiple-regression backend has more verified identities, covers more functions, runs faster on average, and neither backend emits faulty identities, compared with the named MILP backend."
+  },
+  "pass_conditions": [
+    "all source-version and table-domain checks pass",
+    "all 40 legacy rows and all 80 current rows are present",
+    "fresh LR and MILP runs use the same commit, seed, timeout, environment, and fixed campaign command",
+    "an independent parser reconstructs paired aggregate results",
+    "truncated-domain and swapped-label controls are rejected",
+    "every cumulative Claim 1-4 verifier still passes"
+  ],
+  "final_version_resolved_verdict": "VERIFIED",
+  "confidence": "MEDIUM",
+  "remaining_interpretation_risk": "The judge sentence conflates v1 Table 1/Figure 3 with v1 Table 2; the reproduction cannot truthfully manufacture an LR/MILP column for the nonlinear-invariant table."
+}
