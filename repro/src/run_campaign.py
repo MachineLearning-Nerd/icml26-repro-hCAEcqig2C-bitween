@@ -177,6 +177,62 @@ def theory(config: dict) -> None:
     print("THEORY_CLAIM_VERDICT=VERIFIED", flush=True)
 
 
+def backend_source(config: dict) -> None:
+    theory(config)
+    python = str(ROOT / ".venv" / "bin" / "python")
+    run(
+        [
+            python,
+            "repro/src/verify_backend_source.py",
+            "--out",
+            str(ARTIFACT_ROOT / "claim5_backend" / "source_audit_output.json"),
+        ],
+        label="claim-5-versioned-source-and-complete-table-audit",
+    )
+    print("BACKEND_SOURCE_AUDIT_VERDICT=PASS", flush=True)
+
+
+def backend_experiment(config: dict) -> None:
+    backend_source(config)
+    python = str(ROOT / ".venv" / "bin" / "python")
+    solver = config["backend_solver"]
+    milp_dir = ARTIFACT_ROOT / "claim5_backend" / f"milp_{solver}_seed42"
+    milp_dir.mkdir(parents=True, exist_ok=True)
+    run(
+        [
+            python,
+            "repro/src/run_vanilla.py",
+            "--seed",
+            str(config["vanilla_seed"]),
+            "--res_dir",
+            str(milp_dir),
+            "--timeout_sec",
+            str(config["vanilla_timeout_seconds_per_function"]),
+            "--method",
+            "eager_milp",
+            "--milp",
+            solver,
+        ],
+        label=f"claim-5-fresh-full-80-milp-{solver}",
+    )
+    run(
+        [
+            python,
+            "repro/src/compare_backends.py",
+            "--lr-dir",
+            str(ARTIFACT_ROOT / "baseline" / "vanilla_seed42"),
+            "--milp-dir",
+            str(milp_dir),
+            "--solver",
+            solver,
+            "--out",
+            str(ARTIFACT_ROOT / "claim5_backend" / f"comparison_{solver}.json"),
+        ],
+        label=f"claim-5-strict-paired-backend-verifier-{solver}",
+    )
+    print(f"BACKEND_EXPERIMENT_{solver.upper()}_VERDICT=PASS", flush=True)
+
+
 def main() -> None:
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     print_environment(config)
@@ -185,6 +241,12 @@ def main() -> None:
         return
     if config["campaign_stage"] == "theory":
         theory(config)
+        return
+    if config["campaign_stage"] == "backend_source":
+        backend_source(config)
+        return
+    if config["campaign_stage"] == "backend_experiment":
+        backend_experiment(config)
         return
     raise SystemExit(f"Unsupported campaign stage: {config['campaign_stage']}")
 

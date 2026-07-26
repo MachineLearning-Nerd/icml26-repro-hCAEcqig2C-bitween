@@ -35,6 +35,7 @@ def main() -> None:
     ap.add_argument("--res_dir", required=True, help="output directory for per-function .txt logs")
     ap.add_argument("--timeout_sec", type=float, default=1800.0, help="per-function wall cap (s)")
     ap.add_argument("--method", default="multiple_regression", help="fitting method")
+    ap.add_argument("--milp", choices=["gurobi", "pulp", "glpk"], help="MILP solver")
     ap.add_argument("--scope", choices=["both", "base", "extended"], default="both")
     args = ap.parse_args()
 
@@ -47,6 +48,8 @@ def main() -> None:
         "--res_dir", args.res_dir,
         "--timeout_sec", str(args.timeout_sec),
     ]
+    if args.milp:
+        common_argv.extend(["--milp", args.milp])
 
     st = time.time()
     if args.scope in ("both", "base"):

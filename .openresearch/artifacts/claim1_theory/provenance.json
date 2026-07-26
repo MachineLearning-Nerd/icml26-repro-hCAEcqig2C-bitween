@@ -1,0 +1,16 @@
+{
+  "git_sha": "c7fd7c901d0d362ffe48876f380fd9567d00dcbc",
+  "run_id": "63efb31b-a80c-4aff-90e0-52a24e81f061",
+  "provider_job": "DineshAI/6a6631207ef3c08464969cac",
+  "backend": "hf",
+  "flavor": "cpu-upgrade",
+  "allocated_vcpus": 8,
+  "allocated_memory_gb": 32,
+  "estimated_runtime_minutes": 22,
+  "provider_wall_seconds": 1268,
+  "entrypoint_runtime_seconds": 1236.8115,
+  "theory_exhaustive_stage_seconds": 13.224633,
+  "theory_independent_stage_seconds": 0.097849,
+  "estimated_cost_usd": 0.010567,
+  "seed_policy": "Vanilla seed 42; numeric controls seed 0; theory routes deterministic exhaustive enumeration"
+}

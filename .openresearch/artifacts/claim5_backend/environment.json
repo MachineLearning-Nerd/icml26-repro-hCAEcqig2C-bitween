@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "python": "3.12",
+  "manager": "uv",
+  "venv": ".venv",
+  "lockfile": "uv.lock",
+  "lockfile_sha256": "69bf3750e993d181288ddb4a6a49a7ae74a8fcfff492c005d0b4cae7516a3466",
+  "fixed_run_command": "uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py",
+  "backend": "hf",
+  "flavor": "cpu-upgrade",
+  "container_image": "ghcr.io/astral-sh/uv:python3.12-bookworm-slim",
+  "estimated_cpu_cores": 8,
+  "allocated_vcpus": 8,
+  "allocated_memory_gb": 32,
+  "estimated_source_stage_runtime_minutes": 23,
+  "hourly_price_usd": 0.03,
+  "randomness": {
+    "vanilla_seed": 42,
+    "timeout_seconds_per_function": 1800
+  }
+}

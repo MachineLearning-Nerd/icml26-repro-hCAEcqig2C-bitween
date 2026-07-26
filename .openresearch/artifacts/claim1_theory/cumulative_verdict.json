@@ -1,0 +1,26 @@
+{
+  "run_id": "63efb31b-a80c-4aff-90e0-52a24e81f061",
+  "git_sha": "c7fd7c901d0d362ffe48876f380fd9567d00dcbc",
+  "claim2": {"function_count": 80, "id_span": [1, 80], "verdict": "VERIFIED"},
+  "claim3": {
+    "fresh_coverage": 39,
+    "fresh_verified_identities": 91,
+    "fresh_faulty": 0,
+    "sigmoid_verified_identities": 2,
+    "sigmoid_max_abs_residuals": [1.9984014443252818e-15, 5.551115123125783e-16],
+    "verdict": "VERIFIED"
+  },
+  "claim4": {
+    "function_count": 80,
+    "coverage": 73,
+    "verified_identities": 320,
+    "faulty": 0,
+    "verdict": "VERIFIED"
+  },
+  "negative_controls": [
+    {"name": "false exponential additivity", "observed": "REJECT", "max_abs_residual": 21583.379705612002, "samples": 20000},
+    {"name": "false constant sigmoid", "observed": "REJECT", "max_abs_residual": 0.49330503575022056, "samples": 20000},
+    {"name": "false square additivity", "observed": "REJECT", "max_abs_residual": 49.4493070203996, "samples": 20000}
+  ],
+  "verdict": "PASS"
+}
