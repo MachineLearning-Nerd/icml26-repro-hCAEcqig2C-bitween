@@ -1,0 +1,74 @@
+{
+  "judge_wording": {
+    "source_attribution": "CONFLATES v1 Table 1 LR/MILP RSR-Bench with v1 Table 2 NLA DIG/SymInfer comparison",
+    "text": "On nonlinear invariant benchmarks, the regression backend outperforms the MILP backend in sample count and runtime (Table 2)."
+  },
+  "negative_controls": [
+    {
+      "name": "truncate complete v1 domain to 39 rows",
+      "observed": "REJECT"
+    },
+    {
+      "name": "swap LR and MILP labels in v5 directional contract",
+      "observed": "REJECT"
+    }
+  ],
+  "schema_version": 1,
+  "source_versions": {
+    "v1": {
+      "lr_vs_milp_anchor": "sections/evaluation.tex lines 24-61; Figure 3; Table 1; 40-function RSR-Bench",
+      "nla_table_anchor": "sections/evaluation.tex Table 2; Bitween vs DIG vs SymInfer; no MILP column",
+      "source_sha256": "c9483e7747bead779af4d5691438feac34e9c38af77cb4fbe4928c90f2f5890c"
+    },
+    "v5": {
+      "anchor": "abstract; sections/evaluation.tex and table_aggregate_results.tex; 80-function RSR-Bench",
+      "nla_status": "removed from the paper",
+      "source_sha256": "556b673c447303e3d2ce1d3c4e565edb0de7dad954bd5174941841bfe9ca961f"
+    }
+  },
+  "v1_complete_table_audit": {
+    "paired_runtime_direction": {
+      "equal": 0,
+      "lr_faster": 11,
+      "lr_slower": 29
+    },
+    "paired_sample_direction": {
+      "equal": 10,
+      "lr_more": 0,
+      "lr_strictly_fewer": 29,
+      "missing": 1
+    },
+    "prose_totals": {
+      "lr_samples": 594,
+      "lr_time_s": 130.53,
+      "milp_samples": 1095,
+      "milp_time_s": 187.47
+    },
+    "row_count": 40,
+    "table_sums": {
+      "lr_samples": 607,
+      "lr_time_s": 227.1,
+      "milp_samples": 1180,
+      "milp_time_s": 308.64
+    }
+  },
+  "v5_canonical_audit": {
+    "directional_contract": "PASS",
+    "lr": {
+      "average_time_s": 4.791,
+      "functions_with_verified_identity": 43,
+      "rsr": 87,
+      "unverified": 46,
+      "verified": 87
+    },
+    "milp": {
+      "average_time_s": 11.409125,
+      "functions_with_verified_identity": 41,
+      "rsr": 74,
+      "unverified": 29,
+      "verified": 74
+    },
+    "row_count": 80
+  },
+  "verdict": "PASS"
+}
