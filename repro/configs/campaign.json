@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "campaign_stage": "baseline",
+  "vanilla_seed": 42,
+  "vanilla_timeout_seconds_per_function": 1800,
+  "numeric_falsifier_samples": 20000,
+  "estimated_cpu_cores": 8,
+  "estimated_runtime_minutes": 25,
+  "required_backend": "hf",
+  "required_flavor": "cpu-upgrade"
+}
