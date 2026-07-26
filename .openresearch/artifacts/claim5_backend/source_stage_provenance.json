@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "experiment_id": "ae34e6dc-82e8-4513-867f-c71a14633ba0",
+  "run_id": "b5705fbf-d448-460b-8c66-10dde16bd7aa",
+  "git_sha": "1f9f8abb6426eaf6763acdfdd0c072905cdddc5c",
+  "backend": "hf",
+  "flavor": "cpu-upgrade",
+  "estimated_cpu_cores": 8,
+  "allocated_vcpus": 8,
+  "allocated_memory_gb": 32,
+  "container_reported_host_logical_cpus": 64,
+  "estimated_runtime_minutes": 23,
+  "run_duration_seconds": 1348,
+  "entrypoint_runtime_seconds": 1317.341485,
+  "hourly_price_usd": 0.03,
+  "approximate_compute_cost_usd": 0.011233,
+  "fixed_run_command": "uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py",
+  "result": "PASS"
+}
