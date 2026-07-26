@@ -12,6 +12,7 @@ Usage:
 """
 import argparse
 import os
+import random
 import runpy
 import sys
 import time
@@ -40,6 +41,7 @@ def main() -> None:
     args = ap.parse_args()
 
     os.makedirs(args.res_dir, exist_ok=True)
+    random.seed(args.seed)
     np.random.seed(args.seed)
 
     common_argv = [
