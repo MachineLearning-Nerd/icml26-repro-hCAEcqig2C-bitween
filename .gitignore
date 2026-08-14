@@ -12,8 +12,10 @@ outputs/smoke/
 *.trace.csv
 logs/
 
-# Trackio local state is committed selectively; ignore caches
-.trackio/*.log
+# Publisher and local tooling state
+.trackio/
+.openresearch/cache/
+*.tmp
 
 # Secrets
 .env

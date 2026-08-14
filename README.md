@@ -1,125 +1,174 @@
-# Five-claim reproduction: Learning Randomized Reductions
+# Learning Randomized Reductions (Bitween)
 
-[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/blob/main/notebooks/learning_randomized_reductions.py)
+ICML 2026 reproduction audit for *Learning Randomized Reductions*.
 
-This repository now tests all five claims used by the live evaluator for
-[*Learning Randomized Reductions*](https://arxiv.org/abs/2412.18134). The
-campaign reconstructs the Section 4 theory, reruns the full 80-function
-RSR-Bench, preserves the accepted vanilla and agentic results, and adds fresh
-paired regression/MILP comparisons.
+Paper: [arXiv 2412.18134](https://arxiv.org/abs/2412.18134) · OpenReview
+`hCAEcqig2C` · [official authors' code](https://github.com/ferhaterata/learning-randomized-reductions)
 
-The strongest current assessment is **five VERIFIED, version-resolved
-claims**, but this is not a new judge result. The public logbook remains at
-**6/10** until the live evaluator reviews the new revision. The conservative
-forecast is **8–10/10** and the best-supported possible score is **10/10**.
+This repository is an independent reproduction and audit. It is not the
+authors' official implementation.
 
-Headline numbers:
+## Result at a glance
 
-- Section 4: the exact existential result is independently reconstructed; the
-  paper's binary proof witness is invalid at `epsilon = 1/2`, while a ternary
-  witness repairs the proof without weakening the stated theorem.
-- Vanilla Bitween: paper `43/80`; frozen baseline `43/80`, 91 verified
-  identities, zero faulty; final cumulative run `42/80`, 91 identities.
-- Agentic Bitween: paper `64/80`; preserved full-scale run `73/80`, 320
-  verified identities, zero faulty under the reproduction's broader coverage
-  metric.
-- Backend comparison: final full-80 LR/Gurobi coverage `42/38`, verified
-  identities `91/70`, and mean runtime `10.444/14.450 s`. The legacy v1 table
-  sums to LR/MILP sample use `607/1180` and runtime `227.10/308.64 s`.
+The checked-in package has five scoped reproduction contracts, all passing,
+with important qualifications documented below. A separate matched audit of
+the paper's Agentic-versus-Neural headline does **not** reproduce the claimed
+discovery advantage.
 
-Every scientific job used Hugging Face `cpu-upgrade` (8 vCPUs, 32 GB, no
-GPU). The code is pinned through `uv.lock`; all branches inherit one fixed
-command and vary only committed configuration. The detailed
-[visual report](reports/five-claim-reproduction/report.md) separates exact
-paper statements, observed evidence, controls, substitutions, and remaining
-risk. The [tutorial notebook](notebooks/learning_randomized_reductions.py)
-opens with embedded evidence and does not rerun expensive experiments.
+| Contract | Status | What the saved evidence shows |
+|---|---|---|
+| Section 4 theory | `VERIFIED` | PAC-to-RSR case split, finite-field separation, and BLR recovery pass; the paper's supplied binary witness is rejected at `epsilon=1/2`, and an independent ternary witness repairs the proof route. |
+| RSR-Bench domain | `VERIFIED` | Exactly 80 functions, IDs `01..80`; incomplete and duplicate/omitted domains are rejected. |
+| Vanilla Bitween | `VERIFIED_SCOPED` | Frozen baseline: 43/80 functions, 91 verified identities, 0 faulty, and 3 sigmoid identities; later seeded runs cover 39–42 functions, so run variation is disclosed. |
+| Agentic Bitween | `VERIFIED_SCOPED` | 73/80 functions with at least one SymPy-verified identity, 320 identities, 0 faulty; this is broader than the paper's manually curated 64/80 RSR metric. |
+| LR versus MILP | `VERIFIED_VERSION_RESOLVED` | Final paired Gurobi run: LR/MILP coverage 42/38, verified identities 91/70, mean time 10.44425/14.450125 s, 0 faulty, label swap rejected. |
 
-## Experiment log
+### Separate Agentic-versus-Neural audit
 
-| Branch / experiment | Purpose or change | Exact run command | Assessment / outcome | Compute |
-|---|---|---|---|---|
-| [`main`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/main) | Public README, report, notebook, and release surface | Not run as an experiment (publication surface) | Presentation only | None |
-| [`orx/frozen-6-of-10-baseline`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/frozen-6-of-10-baseline) | Freeze and rerun the previously accepted 80-function evidence | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | 80 IDs; vanilla 43/80, 91 verified, zero faulty; accepted agentic evidence rechecked | HF `cpu-upgrade`, 8 vCPU, 32 GB, 18m27s |
-| [`orx/exact-section-4-contract-and-boundary-audit`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/exact-section-4-contract-and-boundary-audit) | Proof-level Claim 1 reconstruction and boundary control | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | Exact theorem verified; defective binary witness rejected; cumulative checks pass | HF `cpu-upgrade`, 8 vCPU, 32 GB, 21m08s |
-| [`orx/backend-claim-source-contract-and-harness`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/backend-claim-source-contract-and-harness) | Hash and reconcile v1/v5 source statements before testing Claim 5 | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | v1 complete table and v5 contracts pass; source mismatch exposed | HF `cpu-upgrade`, 8 vCPU, 32 GB, 22m28s |
-| [`orx/fresh-full-80-gurobi-milp-comparison`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/fresh-full-80-gurobi-milp-comparison) | Paper-relevant paired LR versus eager Gurobi MILP | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | LR/MILP coverage 40/37, identities 88/69, mean runtime 12.008/17.791 s; swap control rejected | HF `cpu-upgrade`, 8 vCPU, 32 GB, 41m34s |
-| [`orx/fresh-full-80-pulp-milp-robustness`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/fresh-full-80-pulp-milp-robustness) | Open-source solver robustness route | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | LR/MILP coverage 41/39, identities 88/66, mean runtime 11.939/17.181 s; swap control rejected | HF `cpu-upgrade`, 8 vCPU, 32 GB, 40m30s |
-| [`orx/integrated-five-claim-release-candidate`](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/integrated-five-claim-release-candidate) | Final cumulative five-claim regression and paper-relevant Gurobi rerun | `uv sync --frozen && uv pip install --python .venv/bin/python --no-deps -e ./upstream && .venv/bin/python repro/src/run_campaign.py` | All claim gates pass; LR/MILP 42/38 coverage, 91/70 identities, 10.444/14.450 s mean runtime | HF `cpu-upgrade`, 8 vCPU, 32 GB, 34m54s |
+`outputs/c3_primary_paired_audit.json` contains three matched full-80 GPT-OSS
+runs. Neural discovery is ahead in every pair: `(74,73)`, `(77,72)`, and
+`(72,71)` for neural versus agentic coverage. Agentic verification accuracy is
+higher when identities are checked (`0.897959` versus `0.791852`). The result
+is `not_reproduced_in_this_full_scale_open_model_reproduction`; it is not
+silently converted into a positive claim.
 
-Local notebook use:
+No live judge score, score forecast, or author endorsement is claimed here.
+
+The complete mapping is in [`docs/CLAIM_EVIDENCE.md`](docs/CLAIM_EVIDENCE.md).
+
+## What the paper does
+
+Bitween learns randomized self-reductions (RSRs): identities that recover or
+verify `f(x)` using evaluations of `f` at correlated random query points. The
+paper formalizes RSR learning under uniform query marginals, gives PAC/sample-
+complexity results, introduces Vanilla Bitween with fixed query templates,
+and introduces Agentic Bitween, where an LLM proposes richer query functions.
+The benchmark is RSR-Bench, an 80-function suite spanning arithmetic,
+transcendentals, activations, rational functions, continued fractions, and
+multivariate examples.
+
+The current arXiv record lists Ferhat Erata, Orr Paradise, Thanos Typaldos,
+Timos Antonopoulos, ThanhVu Nguyen, Shafi Goldwasser, and Ruzica Piskac as
+authors, and identifies the work as an ICML 2026 Spotlight.
+
+## How each result is produced
+
+| Evidence path | Producer | Output |
+|---|---|---|
+| Theory | `repro/src/verify_theory.py` and `verify_theory_independent.py` | Primary and independent theory JSON, including binary boundary rejection, ternary witness, rank/nullity checks, and a broken-recovery control. |
+| Domain and Vanilla | `repro/src/run_vanilla.py`, `aggregate.py`, `verify_independent.py`, `sigmoid_check.py` | Full 80-function logs, aggregate counts, independently reparsed identities, 20,000-sample sigmoid checks, and false-identity controls. |
+| Agentic | `repro/src/aggregate.py` plus the cumulative verifier | Reparse of the committed full-scale agentic logs; expensive LLM generation is not claimed as newly rerun. |
+| Agentic versus Neural | `repro/src/claim3_falsification.py` | Three paired GPT-OSS full-scale comparisons; every pair must retain the direction `neural_ahead`. |
+| Backend comparison | `repro/src/verify_backend_source.py`, `run_vanilla.py --method eager_milp`, and `compare_backends.py` | Complete v1 table audit, current v5 source audit, paired Gurobi rows, aggregate metrics, and LR/MILP label-swap control. |
+
+The canonical machine-readable evidence lives under
+`.openresearch/artifacts/`. The publication gate bundles the selected evidence
+without writing to any external service.
+
+## Repository layout
+
+```text
+upstream/                    unmodified authors' code at the pinned commit
+repro/configs/               fixed campaign and Vanilla-LR contracts
+repro/src/                   producers, independent checkers, and controls
+repro/tests/                 focused verifier tests
+outputs/                     saved paired audit and publication readback JSON
+.openresearch/artifacts/     canonical claim, provenance, and run evidence
+sources/                     hash-bound arXiv v1/v5 source artifacts
+docs/                        claim, source, branch, research, and gate guides
+hf_space/                    archival evaluator snapshot; not canonical output
+reports/                     detailed scientific report and historical release notes
+```
+
+The old duplicated `.trackio/` publisher state was removed. No token, private
+publisher path, or external write is required to inspect or validate this
+repository.
+
+## Reproduce or validate
+
+The fixed campaign command used by the experiment lineage is:
 
 ```bash
 uv sync --frozen
-uv run marimo edit notebooks/learning_randomized_reductions.py
-uv run marimo run notebooks/learning_randomized_reductions.py
-```
-
-## Historical baseline README (preserved)
-
-# Repro — Learning Randomized Reductions (Bitwen), ICML 2026
-
-Reproduction of *Learning Randomized Reductions* (Bitwen) for the
-[ICML 2026 Agent Reproduction Challenge](https://huggingface.co/spaces/ICML-2026-agent-repro/challenge).
-Paper: ICML 2026 spotlight · [arXiv 2412.18134](https://arxiv.org/abs/2412.18134) ·
-OpenReview `hCAEcqig2C` · code: [ferhaterata/learning-randomized-reductions](https://github.com/ferhaterata/learning-randomized-reductions)
-(pinned commit `e13d4b59`, run unmodified).
-
-Bitwen discovers **randomized self-reductions (RSRs)** — algebraic identities that
-let you verify/self-correct/private-compute a function by evaluating it at
-correlated random points. It ships in two variants: **V-Bitwen** (symbolic
-regression) and **A-Bitwen** (LLM agent proposing novel query functions).
-
-## Official claims (6 pts max)
-1. Vanilla Bitwen finds RSRs for 43/80 functions (54%), incl. the first sigmoid reduction.
-2. Agentic Bitwen finds RSRs for 64/80 functions (80%).
-3. Agentic Bitwen outperforms pure neural baselines on discovery + verification.
-
-## Status
-| Claim | Status | Evidence |
-|---|---|---|
-| **C1 (Vanilla)** | ✅ substantially reproduced (CPU, full scale) | 87 verified identities (exact match); sigmoid RSR reproduced; 39/80 coverage vs 44 canonical |
-| C2 (Agentic) | ⏳ scripts ready, run on Colab GPU + vLLM | `repro/src/run_agentic.sh` |
-| **C3 (vs neural)** | **full-scale GPT-OSS counterexample** | three matched seeds: neural discovery 74/77/72 vs agentic 73/72/71; agentic verification accuracy remains higher |
-
-## Repo layout
-```
-upstream/                     pinned, unmodified Bitwen (commit e13d4b59)
-repro/
-  configs/vanilla_lr.yaml     C1 config
-  src/run_vanilla.py          drives both harness modules (all 80), seed-controlled
-  src/aggregate.py            parse logs -> summary.csv + canonical cross-check
-  src/verify_independent.py   independent SymPy + numeric-falsifier negative control
-  src/sigmoid_check.py        focused sigmoid-RSR demo (C1 clause)
-  src/run_agentic.sh          Colab: vLLM + A-Bitwen over 80 (C2)
-  src/run_neural.sh           Colab: neural baseline, same model (C3)
-  src/compare_agentic_neural.py  C3 comparison table
-  src/claim3_falsification.py  primary paired, no-union C3 audit
-  tests/test_verify.py        unit tests for the falsifier (4/4 passing)
-outputs/
-  vbitween-lr/seed*/          per-function .txt logs + summary.csv
-  canonical/                  authors' canonical results CSV
-  c3_primary_paired_audit.json  three-seed primary C3 audit
-docs/                         methodology.md, backend-substitution.md
-.trackio/                     Trackio logbook (publishes to a public HF Space)
-```
-
-## Reproduce Claim 1 (CPU)
-```bash
-uv venv --python 3.12 .venv
-uv pip install --python .venv/bin/python numpy sympy scipy pandas scikit-learn joblib tqdm func-timeout pulp z3-solver pycparser python-dotenv gurobipy pytest
 uv pip install --python .venv/bin/python --no-deps -e ./upstream
-.venv/bin/python repro/src/run_vanilla.py --seed 42 --res_dir outputs/vbitween-lr/seed42
-.venv/bin/python repro/src/aggregate.py --res_dir outputs/vbitween-lr/seed42 --canonical outputs/canonical/Bitween-Results(Sheet1-ICML).csv
-.venv/bin/python repro/src/verify_independent.py --res_dir outputs/vbitween-lr/seed42
+.venv/bin/python repro/src/run_campaign.py
 ```
 
-## Reproduce Claims 2–3 (Colab GPU + vLLM)
-See `docs/backend-substitution.md`. Serve an open model (Qwen2.5-72B-Instruct-AWQ)
-with vLLM, then `bash repro/src/run_agentic.sh` (C2) and `bash repro/src/run_neural.sh`
-(C3) against the same endpoint, and compare with `compare_agentic_neural.py`.
+This command can launch expensive full-scale CPU/Gurobi stages described in
+`repro/configs/campaign.json`; it is not needed for a read-only publication
+check. To validate the checked-in evidence without rerunning producers:
 
-## Logbook
-`trackio logbook publish <hf-user>/hCAEcqig2C` publishes the Trackio logbook in
-`.trackio/` to a public HF Space (tags `icml2026-repro`, `paper-hCAEcqig2C`).
-Requires `hf auth login` (write token).
+```bash
+python3 repro/src/publication_gate.py --skip-producers
+python3 -m unittest discover -s repro/tests -p 'test_*.py'
+```
+
+The gate checks source hashes, all five scoped contracts, the separate neural
+counterexample, controls, and repository hygiene, then writes:
+
+- `outputs/evidence_bundle.jsonl`
+- `outputs/artifact_manifest.json`
+- `outputs/publication_gate.json`
+
+## Branch lineage
+
+`main` is the clean publication surface. Historical experiment branches are
+preserved under descriptive names:
+
+| Final branch | Role |
+|---|---|
+| `baseline/frozen-6-of-10` | Frozen full-domain baseline and accepted 43/80 Vanilla result. |
+| `audit/section-4-theory` | Section 4 theorem and boundary audit. |
+| `audit/versioned-backend-source` | v1/v5 source and complete-table audit. |
+| `experiment/full-80-gurobi` | Paper-relevant Gurobi comparison. |
+| `experiment/full-80-pulp` | Open-source PuLP robustness substitution. |
+| `release/integrated-five-claim` | Cumulative release candidate and final run. |
+
+The old `orx/*` to final mapping, historical tips, and branch policy are in
+[`docs/BRANCH_AUDIT.md`](docs/BRANCH_AUDIT.md). Branches are evidence lineage,
+not separate undocumented claims.
+
+## Limitations and interpretation boundaries
+
+- The supplied Appendix A.2 binary witness does not establish the boundary
+  case `epsilon=1/2`; the ternary construction is the independent repair.
+- Vanilla coverage varies across seeded runs because the upstream numerical
+  stack has residual variation. The frozen 43/80 result and later counts are
+  all retained.
+- Agentic coverage counts functions with at least one verified identity; the
+  paper's 64/80 value is manually curated, so 73/80 is not an exact re-count of
+  that curation policy.
+- The expensive LLM generation is preserved as committed raw evidence rather
+  than represented as a new local rerun.
+- The v1 backend table and v5 current harness expose different sample metrics;
+  the source audit keeps those metrics separate. Gurobi is the primary route;
+  PuLP is explicitly a solver substitution.
+- Runtime is hardware- and implementation-sensitive. The paired comparison
+  uses the same seed, timeout, commit, and container flavor for both backends,
+  but does not claim universal portability.
+
+## Citation
+
+```bibtex
+@inproceedings{erata2026learning,
+  title     = {Learning Randomized Reductions},
+  author    = {Erata, Ferhat and Paradise, Orr and Typaldos, Thanos and
+               Antonopoulos, Timos and Nguyen, ThanhVu and Goldwasser, Shafi
+               and Piskac, Ruzica},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  year      = {2026},
+  volume    = {306},
+  eprint    = {2412.18134},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.LG}
+}
+```
+
+## Thank you
+
+Thank you to Ferhat Erata, Orr Paradise, Thanos Typaldos, Timos Antonopoulos,
+ThanhVu Nguyen, Shafi Goldwasser, and Ruzica Piskac for developing Bitween,
+publishing the RSR-Bench task, and making the source and claims concrete enough
+to audit. This reproduction is offered as a careful companion to the paper:
+qualifications and failed controls are kept visible because they make the
+result more useful to future readers.

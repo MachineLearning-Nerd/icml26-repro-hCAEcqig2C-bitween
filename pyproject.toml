@@ -1,5 +1,5 @@
 [project]
-name = "learning-randomized-reductions-reproduction"
+name = "icml26-learning-randomized-reductions"
 version = "0.1.0"
 description = "Locked environment for the Learning Randomized Reductions reproduction campaign"
 requires-python = ">=3.12,<3.13"
@@ -24,4 +24,3 @@ dependencies = [
 
 [tool.uv]
 package = false
-

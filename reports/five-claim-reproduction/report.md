@@ -1,5 +1,11 @@
 # Learning Randomized Reductions: a five-claim reproduction
 
+> Archival scientific report from the campaign. The current authoritative
+> status, qualifications, and publication gate are in the repository root
+> [`README.md`](../../README.md), [`STATUS.md`](../../STATUS.md), and
+> [`docs/CLAIM_EVIDENCE.md`](../../docs/CLAIM_EVIDENCE.md). Historical score
+> references below are not current score claims.
+
 ![Five-claim evidence status](images/01_claim_status.png)
 
 The paper asks whether randomized self-reductions can be learned from data:
@@ -193,12 +199,12 @@ explicitly a forecast.
 
 Important lineage:
 
-- [frozen baseline](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/frozen-6-of-10-baseline)
-- [exact Section 4 verification](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/exact-section-4-contract-and-boundary-audit)
-- [versioned backend source audit](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/backend-claim-source-contract-and-harness)
-- [paper-relevant Gurobi comparison](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/fresh-full-80-gurobi-milp-comparison)
-- [PuLP robustness comparison](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/fresh-full-80-pulp-milp-robustness)
-- [final cumulative integration](https://github.com/MachineLearning-Nerd/icml26-repro-hCAEcqig2C-bitween/tree/orx/integrated-five-claim-release-candidate)
+- [frozen baseline](https://github.com/MachineLearning-Nerd/icml26-learning-randomized-reductions/tree/baseline/frozen-6-of-10)
+- [exact Section 4 verification](https://github.com/MachineLearning-Nerd/icml26-learning-randomized-reductions/tree/audit/section-4-theory)
+- [versioned backend source audit](https://github.com/MachineLearning-Nerd/icml26-learning-randomized-reductions/tree/audit/versioned-backend-source)
+- [paper-relevant Gurobi comparison](https://github.com/MachineLearning-Nerd/icml26-learning-randomized-reductions/tree/experiment/full-80-gurobi)
+- [PuLP robustness comparison](https://github.com/MachineLearning-Nerd/icml26-learning-randomized-reductions/tree/experiment/full-80-pulp)
+- [final cumulative integration](https://github.com/MachineLearning-Nerd/icml26-learning-randomized-reductions/tree/release/integrated-five-claim)
 
 Raw machine-readable evidence is under `.openresearch/artifacts/`; executable
 verifiers are under `repro/src/`.

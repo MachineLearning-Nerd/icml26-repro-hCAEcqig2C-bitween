@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "paper": "Learning Randomized Reductions",
+  "arxiv_id": "2412.18134",
+  "openreview_id": "hCAEcqig2C",
+  "artifacts": [
+    {
+      "path": "sources/arxiv-v1/source.tar.gz",
+      "url": "https://export.arxiv.org/e-print/2412.18134v1",
+      "sha256": "c9483e7747bead779af4d5691438feac34e9c38af77cb4fbe4928c90f2f5890c",
+      "description": "Version 1 source archive used for the 40-function LR/MILP table audit."
+    },
+    {
+      "path": "sources/arxiv-v5/source.tar.gz",
+      "url": "https://export.arxiv.org/e-print/2412.18134v5",
+      "sha256": "556b673c447303e3d2ce1d3c4e565edb0de7dad954bd5174941841bfe9ca961f",
+      "description": "Version 5 source archive for the current ICML 2026 paper."
+    },
+    {
+      "path": "sources/arxiv-v5/paper.pdf",
+      "url": "https://arxiv.org/pdf/2412.18134v5",
+      "sha256": "93cab4aa8cec06434b704e639bab87dd15ea95ac46a335961138a94fc1bae2b8",
+      "description": "Version 5 paper PDF."
+    }
+  ],
+  "official_code": {
+    "repository": "https://github.com/ferhaterata/learning-randomized-reductions",
+    "pinned_commit": "e13d4b59f6d23051c73e07cfc447336da84e7bd2",
+    "role": "The tracked upstream/ directory is an unmodified source snapshot."
+  }
+}

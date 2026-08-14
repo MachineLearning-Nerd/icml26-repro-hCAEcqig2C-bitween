@@ -1,5 +1,8 @@
 # Release report: Learning Randomized Reductions
 
+> Archival release/provenance report. The root README, STATUS, claim map, and
+> local publication gate are authoritative for the current repository state.
+
 - Previous live judged score: `6/10`
 - Conservative projected score range after the proposed change: `8–10/10`
 - Best-supported possible new score: `10/10` — forecast only, not a judge result
@@ -33,7 +36,7 @@ No second Space will be created.
 - Previous judged score: `6/10`
 - Frozen baseline run: `c8d858bf-03ac-47a8-96c2-128df8251af5`
 - Winning experiment:
-  `orx/integrated-five-claim-release-candidate`
+  `release/integrated-five-claim`
 - Winning scientific Git SHA:
   `519ae8d1bc86054e48797dc2f02076844a4cea7f`
 - Final run: `1641598f-0324-42b5-8d1f-6c7399526fa8`
